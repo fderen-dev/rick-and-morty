@@ -1,0 +1,119 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:jest/recommended",
+      "plugin:testing-library/react"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+    "plugins": [
+      "import"
+    ],
+    "root": true,
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+      "react/jsx-curly-spacing": [
+        "warn",
+        {
+          "allowMultiline": true,
+          "children": {
+              "when": "always"
+            },
+          "spacing": {
+              "objectLiterals": "always"
+            },
+          "when": "always"
+        }
+      ],
+      "react/jsx-indent": [
+        "error",
+        4,
+        {
+        "checkAttributes": true,
+        "indentLogicalExpressions": true
+        }
+      ],
+      "react/jsx-indent-props": [
+        "error",
+        4
+      ],
+      "import/order": [
+        "warn",
+        {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+          },
+        "groups": [
+            "builtin",
+            "external",
+            "index",
+            "sibling",
+            "parent",
+            "internal"
+          ]
+        }
+      ],
+      "sort-imports": [
+        "warn",
+        {
+          "ignoreCase": false,
+          "ignoreDeclarationSort": true,
+          "ignoreMemberSort": false
+        }
+      ],
+      "sort-keys": [
+        "warn",
+        "asc",
+        {
+          "caseSensitive": true,
+          "minKeys": 2,
+          "natural": false
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "ecmaFeatures": {
+                "jsx": true
+          },
+            "ecmaVersion": "latest",
+            "sourceType": "module"
+        },
+        "plugins": [
+          "@typescript-eslint"
+        ],
+        "rules": {
+          "@typescript-eslint/no-array-constructor": "warn",
+          "no-array-constructor": "off"
+        }
+      }
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+    }
+  }
+}
