@@ -62,18 +62,26 @@
     "import/order": [
       "warn",
       {
-        "alphabetize": {
-          "caseInsensitive": true,
-          "order": "asc"
-        },
         "groups": [
           "builtin",
           "external",
-          "index",
-          "sibling",
-          "parent",
           "internal"
-        ]
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
     ],
     "sort-imports": [
