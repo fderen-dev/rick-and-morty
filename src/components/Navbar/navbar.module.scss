@@ -1,0 +1,12 @@
+@use "styles/variables.scss" as vars;
+@use "styles/mixins.scss";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: vars.$navbar_height;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
+}
