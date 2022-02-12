@@ -1,9 +1,11 @@
-@use 'sass:math';
+@use "sass:math";
+@use "./variables.scss" as vars;
 
 @function strip-unit($value) {
   @return math.div($value, ($value * 0 + 1));
 }
 
+// https://css-tricks.com/snippets/css/fluid-typography/
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
   $u1: unit($min-vw);
   $u2: unit($max-vw);
@@ -23,5 +25,17 @@
         font-size: $max-font-size;
       }
     }
+  }
+}
+
+// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+@mixin matches-breakpoint($breakpoint) {
+  @if map-has-key($map: vars.$breakpoints, $key: $breakpoint) {
+    @media #{inspect(map-get(vars.$breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }

@@ -1,5 +1,5 @@
-@use "~styles/variables.scss" as vars;
-@use "~styles/mixins.scss";
+@use "styles/variables.scss" as vars;
+@use "styles/mixins.scss";
 @import-normalize;
 
 @font-face {
@@ -26,6 +26,12 @@ body {
   padding: 0;
 }
 
+body {
+  min-height: 100vh;
+  min-width: vars.$min_width;
+  width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -34,7 +40,6 @@ h5 {
   font-family: "Get Schwifty";
 }
 
-// https://css-tricks.com/snippets/css/fluid-typography/
 h1 {
   font-size: vars.$mobile_font_mod * vars.$mobile_font_mod *
     vars.$mobile_font_mod * vars.$mobile_font_mod * 1rem;
