@@ -1,5 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 
+import { ModalProvider } from 'context/ModalContext';
 import ReactDOM from 'react-dom';
 
 import App from './App';
@@ -10,7 +11,9 @@ import './index.scss';
 ReactDOM.render(
     <StrictMode>
         <Suspense fallback="loading">
-            <App />
+            <ModalProvider>
+                <App />
+            </ModalProvider>
         </Suspense>
     </StrictMode>,
   document.getElementById("root")
