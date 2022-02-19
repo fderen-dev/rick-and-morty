@@ -1,5 +1,6 @@
-import { Navbar } from 'components/Navbar/Navbar';
 import { useTranslation } from 'react-i18next';
+
+import { Navbar } from 'components/Navbar/Navbar';
 
 import styles from './app.module.scss';
 

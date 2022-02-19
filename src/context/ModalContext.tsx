@@ -1,5 +1,4 @@
-import { FC, ReactNode, createContext, useContext, useState } from 'react';
-
+import { createContext, FC, ReactNode, useContext, useState } from 'react';
 import Modal from "react-modal";
 
 const initialisationError = new Error("Modal context is not initalised");
