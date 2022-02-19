@@ -1,4 +1,4 @@
 {
-  "*.+(tx|tsx)": "eslint --fix",
-  "*.+(json|css|scss|md)": "prettier --write"
+  "*.+(js|jsx|ts|tsx|css|json)": ["yarn run format"],
+  "*.+(js|jsx|ts|tsx)": ["yarn run lint"]
 }

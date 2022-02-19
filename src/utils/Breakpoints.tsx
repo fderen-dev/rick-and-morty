@@ -6,11 +6,11 @@ import { Breakpoints } from './constants';
 export const Desktop: FC = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: Breakpoints.Desktop });
 
-  return isDesktop ? <>{ children }</> : null;
-}
+  return isDesktop ? <>{children}</> : null;
+};
 
 export const Mobiles: FC = ({ children }) => {
   const isMobileDevice = useMediaQuery({ maxWidth: Breakpoints.Desktop - 1 });
 
-  return isMobileDevice ? <>{ children }</> : null;
-}
+  return isMobileDevice ? <>{children}</> : null;
+};
