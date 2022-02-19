@@ -8,12 +8,12 @@ import reportWebVitals from './reportWebVitals';
 import './index.scss';
 
 ReactDOM.render(
-    <StrictMode>
-        <Suspense fallback="loading">
-            <App />
-        </Suspense>
-    </StrictMode>,
-  document.getElementById("root")
+  <StrictMode>
+    <Suspense fallback="loading">
+      <App />
+    </Suspense>
+  </StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
