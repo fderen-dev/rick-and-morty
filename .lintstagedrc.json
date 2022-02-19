@@ -1,3 +1,4 @@
 {
-  "*.+(js|jsx|ts|tsx)": ["yarn run lint"]
+  "*.+(tx|tsx)": "eslint --fix",
+  "*.+(json|css|scss|md)": "prettier --write"
 }

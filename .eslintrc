@@ -6,14 +6,6 @@
     "jest": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jest/recommended",
-    "plugin:testing-library/react"
-  ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -22,13 +14,23 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "simple-import-sort", "import"
-  ],
   "root": true,
   "globals": {
     "JSX": true
   },
+  "plugins": [
+    "simple-import-sort", "import", "react", "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended",
+    "plugin:testing-library/react",
+    "prettier",
+    "prettier/react"
+  ],
   "rules": {
     "no-console": "warn",
     "no-unused-vars": "warn",
@@ -36,37 +38,12 @@
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
-    "react/jsx-curly-spacing": [
-      "warn",
-      {
-        "allowMultiline": true,
-        "children": {
-          "when": "always"
-        },
-        "spacing": {
-          "objectLiterals": "always"
-        },
-        "when": "always"
-      }
-    ],
-    "react/jsx-indent": [
-      "error",
-      4,
-      {
-        "checkAttributes": true,
-        "indentLogicalExpressions": true
-      }
-    ],
-    "react/jsx-indent-props": [
-      "error",
-      4
-    ],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
     "import/prefer-default-export": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
     "sort-keys": [
       "warn",
       "asc",
@@ -74,6 +51,12 @@
         "caseSensitive": true,
         "minKeys": 2,
         "natural": false
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
       }
     ]
   },

@@ -13,7 +13,7 @@ i18n
     initImmediate: false,
     interpolation: {
       escapeValue: false
-    },
+    }
   });
 
 export default i18n;

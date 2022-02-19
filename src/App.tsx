@@ -8,12 +8,12 @@ function App(): JSX.Element {
   const { t } = useTranslation();
 
   return (
-      <div className={ styles.app }>
-          <Navbar />
-          <main className={ styles.main }>
-              <h1 style={ { color: "white" } }>{ t("home.header") }</h1>
-          </main>
-      </div>
+    <div className={styles.app}>
+      <Navbar />
+      <main className={styles.main}>
+        <h1 style={{ color: 'white' }}>{t('home.header')}</h1>
+      </main>
+    </div>
   );
 }
 
