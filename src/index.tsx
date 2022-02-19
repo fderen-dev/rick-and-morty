@@ -1,10 +1,10 @@
 import { StrictMode, Suspense } from 'react';
-
 import ReactDOM from 'react-dom';
+import './i18n';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './i18n';
+
 import './index.scss';
 
 ReactDOM.render(

@@ -23,7 +23,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "import"
+    "simple-import-sort", "import"
   ],
   "root": true,
   "globals": {
@@ -32,8 +32,10 @@
   "rules": {
     "no-console": "warn",
     "no-unused-vars": "warn",
-    "react/jsx-uses-react": "off",
+    "no-underscore-dangle": "off",
+    "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
     "react/jsx-curly-spacing": [
       "warn",
       {
@@ -59,39 +61,12 @@
       "error",
       4
     ],
-    "import/order": [
-      "warn",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "react"
-        ],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
-    "sort-imports": [
-      "warn",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false
-      }
-    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/prefer-default-export": "off",
     "sort-keys": [
       "warn",
       "asc",
@@ -120,7 +95,22 @@
       ],
       "rules": {
         "@typescript-eslint/no-array-constructor": "warn",
-        "no-array-constructor": "off"
+        "no-array-constructor": "off",
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^react", "^prop-types", "^@?\\w", "^\\u0000"],
+              ["^(pages|components)(/.*|$)"],
+              ["^(context|utils)(/.*|$)"],
+              ["^(styles)(/.*|$)"],
+              ["^(assets)(/.*|$)"],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              ["^.+\\.s?css$"]
+            ]
+          }
+        ]
       }
     }
   ],
