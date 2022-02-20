@@ -1,20 +1,34 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { t } from 'i18next';
 
 import { useModalContext } from 'context/ModalContext';
 import { Desktop, Mobiles } from 'utils/Breakpoints';
+
+import logo from 'assets/images/logo-48x48.png';
 
 import styles from './navbar.module.scss';
 
 interface NavbarProps {}
 
 const MobileNavigation: FC = ({ children }) => {
-  const { open, openModal, closeModal } = useModalContext();
+  const {
+    close: closeModal,
+    isOpen: isModalOpen,
+    open: openModal
+  } = useModalContext();
 
-  const toggleModal = open
+  const toggleModal = isModalOpen
     ? closeModal
     : () => openModal(<nav>{children}</nav>);
 
-  return <button onClick={toggleModal}>{open}</button>;
+  useEffect(
+    () => () => {
+      closeModal();
+    },
+    [closeModal]
+  );
+
+  return <button onClick={toggleModal}>{isModalOpen}</button>;
 };
 
 const DesktopNavigation: FC = ({ children }) => (
@@ -27,7 +41,9 @@ const DesktopNavigation: FC = ({ children }) => (
 export const Navbar: FC<NavbarProps> = ({ children }): JSX.Element => {
   return (
     <div className={styles.container}>
-      <div>logo</div>
+      <div>
+        <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
+      </div>
       <Mobiles>
         <MobileNavigation>{children}</MobileNavigation>
       </Mobiles>

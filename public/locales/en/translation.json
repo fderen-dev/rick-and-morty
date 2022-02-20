@@ -1,4 +1,9 @@
 {
+  "navbar": {
+    "logo": {
+      "alt": "Rick and Morty silhuettes"
+    }
+  },
   "home": {
     "header": "Hello world!"
   }

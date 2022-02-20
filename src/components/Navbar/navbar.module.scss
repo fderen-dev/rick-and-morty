@@ -1,13 +1,19 @@
 @use "styles/variables.scss" as vars;
 @use "styles/mixins.scss";
 
+$padding: 8px 12px;
+$box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
+
 .container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: vars.$navbar_height;
+  box-sizing: border-box;
+  padding: $padding;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: vars.$color_white_semi_transparent;
+  box-shadow: $box_shadow;
 }

@@ -1,4 +1,9 @@
 {
+  "navbar": {
+    "logo": {
+      "alt": "Sylwetki Ricka i Mortiego"
+    }
+  },
   "home": {
     "header": "Witaj świecie!"
   }
