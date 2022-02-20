@@ -1,42 +1,50 @@
-import { createContext, FC, ReactNode, useContext, useState } from 'react';
-import Modal from 'react-modal';
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState
+} from 'react';
+
+import { Modal } from 'components/Modal';
 
 const initialisationError = new Error('Modal context is not initalised');
 
 interface IModalContext {
-  open: boolean;
-  openModal: (content: ReactNode) => void;
-  closeModal: () => void;
+  isOpen: boolean;
+  open: (content: ReactNode) => void;
+  close: () => void;
 }
 
 const ModalContext = createContext<IModalContext>({
-  closeModal: () => {
+  close: () => {
     throw initialisationError;
   },
-  open: false,
-  openModal: (content: ReactNode) => {
+  isOpen: false,
+  open: (content: ReactNode) => {
     throw initialisationError;
   }
 });
 
 export const ModalProvider: FC = ({ children }) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [content, setContent] = useState<ReactNode>(null);
 
-  const openModal = (content: ReactNode): void => {
+  const open = useCallback((content: ReactNode) => {
     setContent(content);
-    setOpen(true);
-  };
+    setIsOpen(true);
+  }, []);
 
-  const closeModal = (): void => {
-    setOpen(false);
+  const close = useCallback(() => {
+    setIsOpen(false);
     setContent(null);
-  };
+  }, []);
 
   return (
-    <ModalContext.Provider value={{ closeModal, open, openModal }}>
+    <ModalContext.Provider value={{ close, isOpen, open }}>
       {children}
-      <Modal isOpen={open} onRequestClose={closeModal}>
+      <Modal isOpen={isOpen} close={close}>
         {content}
       </Modal>
     </ModalContext.Provider>
