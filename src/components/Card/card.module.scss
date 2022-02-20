@@ -1,0 +1,11 @@
+
+@use "styles/variables.scss" as vars;
+@use "styles/mixins.scss";
+
+.container {
+  padding: vars.$spacing_mobiles;
+
+  @include mixins.matches-breakpoint("l") {
+    padding: vars.$spacing_desktop;
+  }
+}
