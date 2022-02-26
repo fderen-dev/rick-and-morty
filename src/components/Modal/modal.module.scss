@@ -1,12 +1,33 @@
-.content {
-  position: absolute;
-  inset: 40px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
+@use 'styles/variables.scss' as vars;
+@use 'styles/mixins.scss';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: vars.$color_transparent;
+  backdrop-filter: blur(4px);
+  z-index: vars.$z_index_base;
 }
 
-.overlay {}
+.content {
+  position: absolute;
+  width: 100%;
+  max-width: 50%;
+  left: 50%;
+  top: 20%;
+  overflow: auto;
+  transform: translate(-50%, -20%);
+  outline: none;
+  border-radius: vars.$border_radius;
+}
+
+.closeButton {
+  position: absolute;
+  top: vars.$spacing_mobiles;
+  right: vars.$spacing_mobiles;
+
+  @include mixins.matches-breakpoint('l') {
+    top: vars.$spacing_desktop;
+    right: vars.$spacing_desktop;
+  }
+}
