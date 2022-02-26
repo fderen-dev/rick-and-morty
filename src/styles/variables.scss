@@ -8,6 +8,7 @@ $max_font: 24px;
 $mobile_font_mod: 1.2;
 $desktop_font_mod: 1.5;
 
+/* prettier-ignore */
 $breakpoints: (
   "s": (
     min-width(576px),
@@ -27,11 +28,28 @@ $breakpoints: (
 $navbar_height: 64px;
 
 // spacing
+$spacing_base: 8px;
 $spacing_mobiles: 16px;
 $spacing_desktop: 32px;
 
 // colors
-$color_rm_blue: #23a2bd;
-$color_rm_green: #82fc58;
+$color_blue: #23a2bd;
+$color_green: #82fc58;
+$color_black: #000;
+$color_gray_dark: #404040;
+$color_gray_medium: #808080;
+$color_gray_light: #bfbfbf;
+$color_gray_light_90_transparent: #bfbfbf0a;
 $color_white: #fff;
 $color_white_semi_transparent: #ffffff80;
+$color_transparent: #ffffff00;
+
+$border_radius: 8px;
+
+// z-index
+$z_index_background: -1;
+$z_index_base: 0;
+$z_index_foregroud: 1;
+
+// box-shadow
+$box_shadow: 2px 2px 8px $color_white_semi_transparent;

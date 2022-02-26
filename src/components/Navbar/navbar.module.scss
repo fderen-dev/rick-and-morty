@@ -8,6 +8,7 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
   position: fixed;
   top: 0;
   left: 0;
+  z-index: vars.$z_index_foregroud;
   width: 100%;
   height: vars.$navbar_height;
   box-sizing: border-box;
@@ -16,4 +17,5 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
   justify-content: space-between;
   background-color: vars.$color_white_semi_transparent;
   box-shadow: $box_shadow;
+  backdrop-filter: blur(2px);
 }

@@ -3,13 +3,20 @@
 @import-normalize;
 
 @font-face {
-  font-family: "Get Schwifty";
-  src: local("Get Schwifty"),
-    url(./assets/fonts/get_schwifty.ttf) format("truetype");
+  font-family: 'Get Schwifty';
+  src: local('Get Schwifty'),
+    url(./assets/fonts/get_schwifty.ttf) format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-  background: url("./assets/images/background.jpg") no-repeat center center fixed;
+  background: url('./assets/images/background.jpg') no-repeat center center
+    fixed;
   background-size: cover;
   background-color: black;
   @include mixins.fluid-type(
@@ -37,7 +44,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Get Schwifty";
+  font-family: 'Get Schwifty';
 }
 
 h1 {
