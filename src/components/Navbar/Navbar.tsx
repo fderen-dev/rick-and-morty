@@ -1,6 +1,8 @@
 import { FC, useEffect } from 'react';
 import { t } from 'i18next';
 
+import { Button, Variants as ButtonVariants } from 'components/Button';
+
 import { useModalContext } from 'context/ModalContext';
 import { Desktop, Mobiles } from 'utils/Breakpoints';
 
@@ -19,7 +21,7 @@ const MobileNavigation: FC = ({ children }) => {
 
   const toggleModal = isModalOpen
     ? closeModal
-    : () => openModal(<nav>{children}</nav>);
+    : () => openModal(<nav>{children}</nav>, { hasCloseButton: false });
 
   useEffect(
     () => () => {
@@ -28,7 +30,9 @@ const MobileNavigation: FC = ({ children }) => {
     [closeModal]
   );
 
-  return <button onClick={toggleModal}>{isModalOpen}</button>;
+  return (
+    <Button variant={ButtonVariants.RAW} onClick={toggleModal} text="open" />
+  );
 };
 
 const DesktopNavigation: FC = ({ children }) => (
