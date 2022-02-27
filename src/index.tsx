@@ -1,5 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { IconContext } from 'react-icons';
 import './i18n';
 
 import { ModalProvider } from 'context/ModalContext';
@@ -12,9 +13,11 @@ import './index.scss';
 ReactDOM.render(
   <StrictMode>
     <Suspense fallback="loading">
-      <ModalProvider>
-        <App />
-      </ModalProvider>
+      <IconContext.Provider value={{ color: '#000' }}>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </IconContext.Provider>
     </Suspense>
   </StrictMode>,
   document.getElementById('root')
