@@ -1,17 +1,11 @@
 @use "styles/variables.scss" as vars;
 @use "styles/mixins.scss";
-@import-normalize;
+@import 'styles/normalize.scss';
 
 @font-face {
   font-family: 'Get Schwifty';
   src: local('Get Schwifty'),
     url(./assets/fonts/get_schwifty.ttf) format('truetype');
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -27,14 +21,8 @@ html {
   );
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
+body,
+#__root {
   min-width: vars.$min_width;
   width: 100%;
 }
