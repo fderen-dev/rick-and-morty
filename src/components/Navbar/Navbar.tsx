@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
+import classNames from 'classnames/bind';
 
 import { Button, Variants as ButtonVariants } from 'components/Button';
 
@@ -10,9 +11,12 @@ import logo from 'assets/images/logo-48x48.png';
 
 import styles from './navbar.module.scss';
 
+const cx = classNames.bind(styles);
+
 interface NavbarProps {}
 
 const MobileNavigation: FC = ({ children }) => {
+  const { t } = useTranslation();
   const {
     close: closeModal,
     isOpen: isModalOpen,
@@ -31,7 +35,16 @@ const MobileNavigation: FC = ({ children }) => {
   );
 
   return (
-    <Button variant={ButtonVariants.RAW} onClick={toggleModal} text="open" />
+    <Button
+      variant={ButtonVariants.RAW}
+      onClick={toggleModal}
+      className={cx(styles.hamburgerButton, { isOpen: isModalOpen })}
+      aria-label={t(
+        `navbar.hamburger-menu.aria-${isModalOpen ? 'open' : 'close'}`
+      )}
+    >
+      <div className={styles.hamburgerIcon} />
+    </Button>
   );
 };
 
@@ -43,6 +56,8 @@ const DesktopNavigation: FC = ({ children }) => (
 );
 
 export const Navbar: FC<NavbarProps> = ({ children }): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
       <div>

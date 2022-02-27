@@ -25,4 +25,8 @@ $color_gray_hover: #aaa9a9;
       transition: transform 0.2 linear;
     }
   }
+
+  &.raw {
+    padding: 0;
+  }
 }

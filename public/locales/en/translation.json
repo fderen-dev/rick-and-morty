@@ -1,7 +1,14 @@
 {
+  "modal": {
+    "close-aria": "Close"
+  },
   "navbar": {
     "logo": {
       "alt": "Rick and Morty silhuettes"
+    },
+    "hamburger-menu": {
+      "aria-open": "Open menu",
+      "aria-close": "Close menu"
     }
   },
   "home": {

@@ -19,3 +19,55 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
   box-shadow: $box_shadow;
   backdrop-filter: blur(2px);
 }
+
+.hamburgerButton {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transition-duration: 0.5s;
+
+  .hamburgerIcon {
+    transition-duration: 0.5s;
+    position: absolute;
+    left: 0;
+    height: 0px;
+    width: 40px;
+    background-color: vars.$color_black;
+
+    &:before {
+      transition-duration: 0.5s;
+      position: absolute;
+      width: 40px;
+      height: 8px;
+      background-color: vars.$color_black;
+      content: '';
+      left: 0;
+      top: -13.4px;
+    }
+
+    &:after {
+      transition-duration: 0.5s;
+      position: absolute;
+      width: 40px;
+      height: 8px;
+      background-color: vars.$color_black;
+      content: '';
+      left: 0;
+      top: 13.4px;
+    }
+  }
+
+  &.isOpen {
+    .hamburgerIcon {
+      transition-duration: 0.5s;
+
+      &:before {
+        transform: rotateZ(135deg) scaleX(1.25) translate(8.7px, -8.7px);
+      }
+
+      &:after {
+        transform: rotateZ(-135deg) scaleX(1.25) translate(8px, 8px);
+      }
+    }
+  }
+}

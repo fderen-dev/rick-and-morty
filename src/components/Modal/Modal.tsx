@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { ImCross } from 'react-icons/im/';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import classNames from 'classnames';
 
@@ -21,28 +23,33 @@ export const Modal: FC<ModalProps> = ({
   overlayClassName,
   children,
   showCloseButton = true
-}) => (
-  <ReactModal
-    appElement={document.getElementById('root') as HTMLElement}
-    isOpen={isOpen}
-    onRequestClose={close}
-    className={classNames(styles.content, contentClassName)}
-    overlayClassName={classNames(styles.overlay, overlayClassName)}
-    contentElement={(props, children) => (
-      <Card className={props.className}>
-        {showCloseButton && (
-          <Button
-            variant={ButtonVariants.RAW}
-            onClick={close}
-            className={styles.closeButton}
-          >
-            close
-          </Button>
-        )}
-        {children}
-      </Card>
-    )}
-  >
-    {children}
-  </ReactModal>
-);
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <ReactModal
+      appElement={document.getElementById('root') as HTMLElement}
+      isOpen={isOpen}
+      onRequestClose={close}
+      className={classNames(styles.content, contentClassName)}
+      overlayClassName={classNames(styles.overlay, overlayClassName)}
+      contentElement={(props, children) => (
+        <Card className={props.className}>
+          {showCloseButton && (
+            <Button
+              variant={ButtonVariants.RAW}
+              onClick={close}
+              className={styles.closeButton}
+              aria-label={t('modal.aria-close')}
+            >
+              <ImCross />
+            </Button>
+          )}
+          {children}
+        </Card>
+      )}
+    >
+      {children}
+    </ReactModal>
+  );
+};

@@ -1,7 +1,14 @@
 {
+  "modal": {
+    "close-aria": "Close"
+  },
   "navbar": {
     "logo": {
       "alt": "Sylwetki Ricka i Mortiego"
+    },
+    "hamburger-menu": {
+      "aria-open": "Otwórz menu",
+      "aria-close": "Zamknij menu"
     }
   },
   "home": {
