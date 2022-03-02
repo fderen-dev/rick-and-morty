@@ -39,3 +39,28 @@
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
+
+@mixin h2-like {
+  font-family: 'Get Schwifty';
+  font-size: vars.$mobile_font_mod * vars.$mobile_font_mod *
+    vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$mobile_font_mod *
+      vars.$min_font,
+    vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$desktop_font_mod *
+      vars.$min_font
+  );
+}
+
+@mixin h3-like {
+  font-family: 'Get Schwifty';
+  font-size: vars.$mobile_font_mod * vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$min_font,
+    vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$min_font
+  );
+}
