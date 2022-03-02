@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 interface NavbarProps {}
 
-const MobileNavigation: FC = ({ children }) => {
+const MenuMobile: FC = ({ children }) => {
   const { t } = useTranslation();
   const {
     close: closeModal,
@@ -29,9 +29,9 @@ const MobileNavigation: FC = ({ children }) => {
     ? closeModal
     : () =>
         openModal(
-          <div>
-            <nav>{children}</nav>
-            <LanguageSelector />
+          <div className={styles.menuMobile}>
+            <nav id="menu">{children}</nav>
+            <LanguageSelector vertical />
           </div>,
           { hasCloseButton: false }
         );
@@ -44,39 +44,52 @@ const MobileNavigation: FC = ({ children }) => {
   );
 
   return (
-    <Button
-      variant={ButtonVariants.RAW}
-      onClick={toggleModal}
-      className={cx(styles.hamburgerButton, { isOpen: isModalOpen })}
-      aria-label={t(
-        `navbar.hamburger-menu.aria-${isModalOpen ? 'open' : 'close'}`
-      )}
-    >
-      <div className={styles.hamburgerIcon} />
-    </Button>
+    <>
+      <span className="sr-only" id="mobile-menu-label">
+        {t('navbar.menu-aria')}
+      </span>
+      <Button
+        variant={ButtonVariants.RAW}
+        onClick={toggleModal}
+        className={cx(styles.hamburgerButton, { isOpen: isModalOpen })}
+        aria-label={t('navbar.hamburger-aria')}
+        label-for="menu"
+        aria-expanded={isModalOpen}
+        aira-labelled-by="mobile-menu-label"
+      >
+        <div className={styles.hamburgerIcon} aria-hidden="true" />
+      </Button>
+    </>
   );
 };
 
-const LargerThanMobileNavigation: FC = ({ children }) => (
-  <div className={styles.content}>
-    <nav>{children}</nav>
-    <LanguageSelector />
-  </div>
-);
+const LargerThanMobileNavigation: FC = ({ children }) => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <span className="sr-only" id="larger-than-mobile-menu-label">
+        {t('navbar-menu-aria')}
+      </span>
+      <nav id="menu" aria-labelledby="larger-than-mobile-menu-label">
+        {children}
+      </nav>
+    </>
+  );
+};
 
 export const Navbar: FC<NavbarProps> = ({ children }): JSX.Element => {
   const { t } = useTranslation();
 
   return (
     <div className={styles.container}>
-      <div>
-        <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
-      </div>
+      <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
       <Mobile>
-        <MobileNavigation>{children}</MobileNavigation>
+        <MenuMobile>{children}</MenuMobile>
       </Mobile>
       <LargerThanMobile>
         <LargerThanMobileNavigation>{children}</LargerThanMobileNavigation>
+        <LanguageSelector />
       </LargerThanMobile>
     </div>
   );

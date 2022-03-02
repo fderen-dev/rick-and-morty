@@ -22,6 +22,7 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
 
 .hamburgerButton {
   position: relative;
+  align-self: center;
   width: 40px;
   height: 40px;
   transition-duration: 0.5s;
@@ -38,7 +39,8 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
       transition-duration: 0.5s;
       position: absolute;
       width: 40px;
-      height: 8px;
+      height: 6px;
+      border-radius: 4px;
       background-color: vars.$color_black;
       content: '';
       left: 0;
@@ -49,7 +51,8 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
       transition-duration: 0.5s;
       position: absolute;
       width: 40px;
-      height: 8px;
+      height: 6px;
+      border-radius: 4px;
       background-color: vars.$color_black;
       content: '';
       left: 0;
@@ -70,4 +73,8 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
       }
     }
   }
+}
+
+.menuMobile {
+  padding: vars.$spacing_mobiles * 2 0;
 }

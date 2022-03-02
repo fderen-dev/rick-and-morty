@@ -6,9 +6,11 @@
     "logo": {
       "alt": "Rick and Morty silhuettes"
     },
-    "hamburger-menu": {
-      "aria-open": "Open menu",
-      "aria-close": "Close menu"
+    "menu-aria": "Main menu",
+    "hamburger-aria": "Open menu",
+    "language-selector": {
+      "toggle-aria": "Open menu",
+      "navbar.language-selector.label-aria": "Select a language"
     }
   },
   "home": {

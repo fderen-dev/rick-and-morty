@@ -6,9 +6,11 @@
     "logo": {
       "alt": "Sylwetki Ricka i Mortiego"
     },
-    "hamburger-menu": {
-      "aria-open": "Otwórz menu",
-      "aria-close": "Zamknij menu"
+    "menu-aria": "Główne menu",
+    "hamburger-aria": "Otwórz menu",
+    "language-selector": {
+      "toggle-aria": "Otwórz menu",
+      "navbar.language-selector.label-aria": "Wybierz język"
     }
   },
   "home": {

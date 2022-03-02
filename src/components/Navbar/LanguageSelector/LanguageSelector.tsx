@@ -1,4 +1,5 @@
 import { useState, VFC } from 'react';
+import { useTranslation } from 'react-i18next';
 import clasNames from 'classnames/bind';
 import { useToggle } from 'hooks/useToggle';
 import i18n from 'i18n';
@@ -15,34 +16,43 @@ type Language = {
   code: string;
   label: string;
 };
-
 interface ListItemProps {
   item: Language;
   className: string;
   onClick: (item: Language) => void;
 }
-
 const ListItem: VFC<ListItemProps> = ({ className, item, onClick }) => (
   <li className={className} key={item.code}>
-    <Button variant={ButtonVariants.RAW} onClick={() => onClick(item)}>
-      {item.label}
+    <Button
+      variant={ButtonVariants.RAW}
+      onClick={() => onClick(item)}
+      role="option"
+      lang={item.code}
+      aria-label={item.label}
+    >
+      <span aria-hidden="true">{item.code}</span>
     </Button>
   </li>
 );
 
-export const LanguageSelector: VFC = () => {
+interface LanguageSelectorProps {
+  vertical?: boolean;
+}
+
+export const LanguageSelector: VFC<LanguageSelectorProps> = ({ vertical }) => {
+  const { t } = useTranslation();
   const [languages] = useState(
-    Object.values(SupportedLanguages).map(
-      (code) =>
+    Object.entries(SupportedLanguages).map(
+      ([key, value]) =>
         ({
-          code,
-          label: code
+          code: key.toLowerCase(),
+          label: value
         } as Language)
     )
   );
   const [currentLanguage, setCurrentLaguage] = useState<Language>({
     code: i18n.language,
-    label: i18n.language
+    label: languages.find((lang) => lang.code === i18n.language)?.label!
   });
   const { value: isOpen, toggle } = useToggle();
 
@@ -55,8 +65,11 @@ export const LanguageSelector: VFC = () => {
   };
 
   return (
-    <div className={styles.menu}>
-      <ul className={cx(styles.menuList, { isOpen })}>
+    <div className={cx(styles.menu, { vertical })} id="language-selector">
+      <span className="sr-only">
+        {t('navbar.language-selector.label-aria')}
+      </span>
+      <ul className={cx(styles.menuList, { isOpen })} role="listbox">
         {languages.map((language) => {
           if (language.code === currentLanguage.code) {
             return null;
@@ -72,8 +85,21 @@ export const LanguageSelector: VFC = () => {
           );
         })}
       </ul>
-      <Button variant={ButtonVariants.RAW} onClick={toggle}>
-        <div className={styles.currentItem}>{currentLanguage.label}</div>
+      <Button
+        variant={ButtonVariants.RAW}
+        onClick={toggle}
+        aria-expanded={isOpen}
+        aria-label={t('navbar.language-selector-toggle-aria')}
+        aria-controls="language-selector"
+      >
+        <div
+          className={styles.currentItem}
+          lang={currentLanguage.code}
+          aria-selected="true"
+          aria-label={currentLanguage.label}
+        >
+          <span aria-hidden="true">{currentLanguage.code}</span>
+        </div>
       </Button>
     </div>
   );

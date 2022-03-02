@@ -6,6 +6,6 @@ export enum Breakpoints {
 }
 
 export enum SupportedLanguages {
-  En = 'en',
-  Pl = 'pl'
+  En = 'English',
+  Pl = 'Polski'
 }
