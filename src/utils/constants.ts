@@ -4,3 +4,8 @@ export enum Breakpoints {
   Desktop = 992,
   LargeDesktop = 1200
 }
+
+export enum SupportedLanguages {
+  En = 'en',
+  Pl = 'pl'
+}
