@@ -5,9 +5,11 @@ import classNames from 'classnames/bind';
 import { Button, Variants as ButtonVariants } from 'components/Button';
 
 import { useModalContext } from 'context/ModalContext';
-import { Desktop, Mobiles } from 'utils/Breakpoints';
+import { LargerThanMobile, Mobile } from 'utils/Breakpoints';
 
 import logo from 'assets/images/logo-48x48.png';
+
+import { LanguageSelector } from './LanguageSelector';
 
 import styles from './navbar.module.scss';
 
@@ -25,7 +27,14 @@ const MobileNavigation: FC = ({ children }) => {
 
   const toggleModal = isModalOpen
     ? closeModal
-    : () => openModal(<nav>{children}</nav>, { hasCloseButton: false });
+    : () =>
+        openModal(
+          <div>
+            <nav>{children}</nav>
+            <LanguageSelector />
+          </div>,
+          { hasCloseButton: false }
+        );
 
   useEffect(
     () => () => {
@@ -48,10 +57,10 @@ const MobileNavigation: FC = ({ children }) => {
   );
 };
 
-const DesktopNavigation: FC = ({ children }) => (
+const LargerThanMobileNavigation: FC = ({ children }) => (
   <div className={styles.content}>
     <nav>{children}</nav>
-    <div>language selector</div>
+    <LanguageSelector />
   </div>
 );
 
@@ -63,12 +72,12 @@ export const Navbar: FC<NavbarProps> = ({ children }): JSX.Element => {
       <div>
         <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
       </div>
-      <Mobiles>
+      <Mobile>
         <MobileNavigation>{children}</MobileNavigation>
-      </Mobiles>
-      <Desktop>
-        <DesktopNavigation>{children}</DesktopNavigation>
-      </Desktop>
+      </Mobile>
+      <LargerThanMobile>
+        <LargerThanMobileNavigation>{children}</LargerThanMobileNavigation>
+      </LargerThanMobile>
     </div>
   );
 };

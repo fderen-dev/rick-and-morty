@@ -3,14 +3,18 @@ import { useMediaQuery } from 'react-responsive';
 
 import { Breakpoints } from './constants';
 
-export const Desktop: FC = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: Breakpoints.Desktop });
+export const LargerThanMobile: FC = ({ children }) => {
+  const isLargerThanMobile = useMediaQuery({
+    minWidth: Breakpoints.MobileLandscape
+  });
 
-  return isDesktop ? <>{children}</> : null;
+  return isLargerThanMobile ? <>{children}</> : null;
 };
 
-export const Mobiles: FC = ({ children }) => {
-  const isMobileDevice = useMediaQuery({ maxWidth: Breakpoints.Desktop - 1 });
+export const Mobile: FC = ({ children }) => {
+  const isMobileDevice = useMediaQuery({
+    maxWidth: Breakpoints.MobileLandscape - 1
+  });
 
   return isMobileDevice ? <>{children}</> : null;
 };
