@@ -14,6 +14,7 @@ interface ModalProps
   contentClassName?: string;
   close: () => void;
   showCloseButton?: boolean;
+  shouldCloseOnOverlayClick?: boolean;
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -22,7 +23,8 @@ export const Modal: FC<ModalProps> = ({
   isOpen,
   overlayClassName,
   children,
-  showCloseButton = true
+  showCloseButton = true,
+  shouldCloseOnOverlayClick = false
 }) => {
   const { t } = useTranslation();
 
@@ -33,6 +35,7 @@ export const Modal: FC<ModalProps> = ({
       onRequestClose={close}
       className={classNames(styles.content, contentClassName)}
       overlayClassName={classNames(styles.overlay, overlayClassName)}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
       contentElement={(props, children) => (
         <Card className={props.className}>
           {showCloseButton && (

@@ -17,6 +17,7 @@ interface ModalState {
 }
 interface ModalOptions {
   hasCloseButton?: boolean;
+  shouldCloseOnOverlayClick?: boolean;
 }
 
 const modalInitialState: ModalState = {
@@ -67,6 +68,9 @@ export const ModalProvider: FC = ({ children }) => {
         isOpen={isOpen}
         close={close}
         showCloseButton={modalState.options?.hasCloseButton}
+        shouldCloseOnOverlayClick={
+          modalState.options?.shouldCloseOnOverlayClick
+        }
       >
         {modalState.content}
       </Modal>
