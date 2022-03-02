@@ -19,6 +19,7 @@
   transform: translate(-50%, -20%);
   outline: none;
   border-radius: vars.$border_radius;
+  z-index: vars.$z_index_foreground;
 }
 
 .closeButton {
