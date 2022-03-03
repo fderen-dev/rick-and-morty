@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
@@ -7,15 +7,11 @@ import { Button, Variants as ButtonVariants } from 'components/Button';
 import { useModalContext } from 'context/ModalContext';
 import { LargerThanMobile, Mobile } from 'utils/Breakpoints';
 
-import logo from 'assets/images/logo-48x48.png';
-
 import { LanguageSelector } from './LanguageSelector';
 
 import styles from './navbar.module.scss';
 
 const cx = classNames.bind(styles);
-
-interface NavbarProps {}
 
 const MenuMobile: FC = ({ children }) => {
   const { t } = useTranslation();
@@ -71,19 +67,25 @@ const LargerThanMobileNavigation: FC = ({ children }) => {
       <span className="sr-only" id="larger-than-mobile-menu-label">
         {t('navbar-menu-aria')}
       </span>
-      <nav id="menu" aria-labelledby="larger-than-mobile-menu-label">
+      <nav
+        id="menu"
+        aria-labelledby="larger-than-mobile-menu-label"
+        className={styles.navbar}
+      >
         {children}
       </nav>
     </>
   );
 };
 
-export const Navbar: FC<NavbarProps> = ({ children }): JSX.Element => {
-  const { t } = useTranslation();
+interface NavbarProps {
+  Logo?: ReactNode;
+}
 
+export const Navbar: FC<NavbarProps> = ({ Logo, children }): JSX.Element => {
   return (
     <div className={styles.container}>
-      <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
+      {Logo}
       <Mobile>
         <MenuMobile>{children}</MenuMobile>
       </Mobile>

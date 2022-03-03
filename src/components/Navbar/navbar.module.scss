@@ -14,6 +14,7 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
   box-sizing: border-box;
   padding: $padding;
   display: flex;
+  column-gap: vars.$spacing_desktop;
   justify-content: space-between;
   background-color: vars.$color_white_semi_transparent;
   box-shadow: $box_shadow;
@@ -73,6 +74,12 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
       }
     }
   }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .menuMobile {

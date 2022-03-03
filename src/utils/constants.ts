@@ -9,3 +9,8 @@ export enum SupportedLanguages {
   En = 'English',
   Pl = 'Polski'
 }
+
+export enum Routes {
+  Home = '/',
+  Characters = '/characters'
+}

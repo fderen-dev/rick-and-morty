@@ -13,7 +13,10 @@
       "navbar.language-selector.label-aria": "Select a language"
     }
   },
-  "home": {
+  "homePage": {
     "header": "Hello world!"
+  },
+  "charactersPage": {
+    "header": "Characters"
   }
 }

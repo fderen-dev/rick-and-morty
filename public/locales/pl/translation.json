@@ -13,7 +13,10 @@
       "navbar.language-selector.label-aria": "Wybierz język"
     }
   },
-  "home": {
+  "homePage": {
     "header": "Witaj świecie!"
+  },
+  "charactersPage": {
+    "header": "Postaci"
   }
 }
