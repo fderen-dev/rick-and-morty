@@ -7,7 +7,7 @@ import { Button, Variants as ButtonVariants } from 'components/Button';
 import { useModalContext } from 'context/ModalContext';
 import { LargerThanMobile, Mobile } from 'utils/Breakpoints';
 
-import { LanguageSelector } from './LanguageSelector';
+import { LanguageSelector } from '../LanguageSelector';
 
 import styles from './navbar.module.scss';
 
