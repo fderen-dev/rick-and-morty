@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
-import classNames from 'classnames';
+import { LinkProps, NavLink } from 'react-router-dom';
+import classNames from 'classnames/bind';
 
 import styles from './navbarItem.module.scss';
 
+const cx = classNames.bind(styles);
 interface NavbarItemProps extends Pick<LinkProps, 'to'> {
   text?: string;
   className?: string;
@@ -16,16 +17,12 @@ export const NavbarItem: FC<NavbarItemProps> = ({
   children
 }) => {
   return (
-    <Link
+    <NavLink
       to={to}
-      className={classNames(
-        styles.link,
-        styles.hoverUnderlineAnimation,
-        className
-      )}
+      className={({ isActive }) => cx(styles.link, { isActive }, className)}
     >
       {text && <span className={styles.text}>{text}</span>}
       {children}
-    </Link>
+    </NavLink>
   );
 };

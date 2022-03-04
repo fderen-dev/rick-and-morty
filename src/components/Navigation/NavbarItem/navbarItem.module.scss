@@ -6,6 +6,13 @@
   position: relative;
   text-decoration: none;
   color: vars.$color_black;
+
+  &.isActive {
+    @include mixins.underline-after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
 }
 
 .text {

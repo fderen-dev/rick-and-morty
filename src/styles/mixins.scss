@@ -65,16 +65,22 @@
   );
 }
 
-@mixin underline-on-hover {
+@mixin underline-after {
   &:after {
     content: '';
     position: absolute;
     width: 50%;
-    transform: scaleX(0);
     height: 1px;
     bottom: 10px;
     left: 25%;
     background-color: vars.$color_black;
+    @content;
+  }
+}
+
+@mixin underline-on-hover {
+  @include underline-after {
+    transform: scaleX(0);
     transition: transform 0.25s ease-out;
   }
 
