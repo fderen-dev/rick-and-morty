@@ -64,3 +64,22 @@
     vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$min_font
   );
 }
+
+@mixin underline-on-hover {
+  &:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 10px;
+    left: 25%;
+    background-color: vars.$color_black;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
