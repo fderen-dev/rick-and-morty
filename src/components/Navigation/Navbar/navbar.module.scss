@@ -85,3 +85,10 @@ $box_shadow: 0 4px 8px 2px rgba(255, 255, 255, 0.55);
 .menuMobile {
   padding: vars.$spacing_mobiles * 2 0;
 }
+
+.navigationMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: vars.$spacing_mobiles;
+}

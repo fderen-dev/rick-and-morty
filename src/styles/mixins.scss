@@ -70,8 +70,8 @@
     content: '';
     position: absolute;
     width: 50%;
-    height: 1px;
-    bottom: 10px;
+    height: 2px;
+    bottom: 20%;
     left: 25%;
     background-color: vars.$color_black;
     @content;

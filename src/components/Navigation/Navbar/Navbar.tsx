@@ -26,7 +26,9 @@ const MenuMobile: FC = ({ children }) => {
     : () =>
         openModal(
           <div className={styles.menuMobile}>
-            <nav id="menu">{children}</nav>
+            <nav id="menu" className={styles.navigationMobile}>
+              {children}
+            </nav>
             <LanguageSelector vertical />
           </div>,
           { hasCloseButton: false }
