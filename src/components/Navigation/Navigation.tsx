@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Routes } from 'utils/constants';
 
-import logo from 'assets/images/logo-48x48.png';
+import logo from 'assets/images/logo.svg';
 
 import { Navbar } from './Navbar';
 import { NavbarItem } from './NavbarItem';
