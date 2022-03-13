@@ -23,7 +23,7 @@ export const Navigation: VFC = () => {
     >
       <NavbarItem
         to={Routes.Characters}
-        text="Characters"
+        text={t('navbar.routes.characters')}
         className={styles.navbarItem}
       />
     </Navbar>

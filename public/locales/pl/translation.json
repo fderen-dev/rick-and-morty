@@ -1,4 +1,5 @@
 {
+  "title": "Przeglądarka informacji o Ricku i Mortym",
   "modal": {
     "close-aria": "Close"
   },
@@ -11,12 +12,17 @@
     "language-selector": {
       "toggle-aria": "Otwórz menu",
       "navbar.language-selector.label-aria": "Wybierz język"
+    },
+    "routes": {
+      "characters": "Postaci"
     }
   },
   "homePage": {
+    "title": "Przeglądarka informacji o Ricku i Mortym | Strona domowa",
     "header": "Witaj świecie!"
   },
   "charactersPage": {
+    "title": "Przeglądarka informacji o Ricku i Mortym | Postaci",
     "header": "Postaci"
   }
 }

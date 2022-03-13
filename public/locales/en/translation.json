@@ -1,4 +1,5 @@
 {
+  "title": "Rick and Morty data browser",
   "modal": {
     "close-aria": "Close"
   },
@@ -11,12 +12,17 @@
     "language-selector": {
       "toggle-aria": "Open menu",
       "navbar.language-selector.label-aria": "Select a language"
+    },
+    "routes": {
+      "characters": "Characters"
     }
   },
   "homePage": {
+    "title": "Rick and Morty data browser | Home page",
     "header": "Hello world!"
   },
   "charactersPage": {
+    "title": "Rick and Morty data browser | Characters",
     "header": "Characters"
   }
 }
