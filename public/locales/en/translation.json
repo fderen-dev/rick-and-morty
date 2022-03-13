@@ -1,5 +1,28 @@
 {
-  "home": {
+  "title": "Rick and Morty data browser",
+  "modal": {
+    "close-aria": "Close"
+  },
+  "navbar": {
+    "logo": {
+      "alt": "Rick and Morty silhuettes"
+    },
+    "menu-aria": "Main menu",
+    "hamburger-aria": "Open menu",
+    "language-selector": {
+      "toggle-aria": "Open menu",
+      "navbar.language-selector.label-aria": "Select a language"
+    },
+    "routes": {
+      "characters": "Characters"
+    }
+  },
+  "homePage": {
+    "title": "Rick and Morty data browser | Home page",
     "header": "Hello world!"
+  },
+  "charactersPage": {
+    "title": "Rick and Morty data browser | Characters",
+    "header": "Characters"
   }
 }

@@ -1,6 +1,10 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { IconContext } from 'react-icons';
+import { BrowserRouter } from 'react-router-dom';
 import './i18n';
+
+import { ModalProvider } from 'context/ModalContext';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +14,13 @@ import './index.scss';
 ReactDOM.render(
   <StrictMode>
     <Suspense fallback="loading">
-      <App />
+      <BrowserRouter>
+        <IconContext.Provider value={{ color: '#000' }}>
+          <ModalProvider>
+            <App />
+          </ModalProvider>
+        </IconContext.Provider>
+      </BrowserRouter>
     </Suspense>
   </StrictMode>,
   document.getElementById('root')

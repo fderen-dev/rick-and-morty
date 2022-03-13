@@ -1,0 +1,77 @@
+@use 'styles/mixins.scss';
+@use 'styles/variables.scss' as vars;
+
+$transition_time: 0.3s;
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuList,
+.menuListItem {
+  transition: left ease-in $transition_time;
+}
+
+.menuList {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.isOpen {
+    left: -50%;
+  }
+}
+
+.menuListItem > button,
+.currentItem {
+  cursor: pointer;
+  padding: 0 vars.$spacing_base;
+}
+
+.menuListItem {
+  @include mixins.h3-like;
+  opacity: 0;
+
+  &.isOpen {
+    opacity: 1;
+  }
+}
+
+.currentItem {
+  z-index: vars.$z_index_foreground;
+  @include mixins.h2-like;
+}
+
+// vertical variant
+.vertical {
+  flex-direction: column;
+
+  .menuList,
+  .menuListItem {
+    transition-property: top;
+  }
+
+  .menuList {
+    top: 75%;
+    left: 50%;
+
+    &.isOpen {
+      left: 50%;
+      top: 125%;
+    }
+  }
+
+  .menuListItem > button,
+  .currentItem {
+    cursor: pointer;
+    padding: vars.$spacing_base 0;
+  }
+}

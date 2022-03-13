@@ -38,6 +38,7 @@
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
+    "react/prop-types": "off",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
@@ -68,7 +69,8 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaFeatures": {
-          "jsx": true
+          "jsx": true,
+          "requireConfigFile": false
         },
         "ecmaVersion": "latest",
         "sourceType": "module"
