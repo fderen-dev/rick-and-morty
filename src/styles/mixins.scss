@@ -40,6 +40,12 @@
   }
 }
 
+@mixin h-coloring {
+  color: vars.$color_blue;
+  -webkit-text-stroke: 0.5px vars.$color_black;
+  text-shadow: 0 0 8px vars.$color_green;
+}
+
 @mixin h2-like {
   font-family: 'Get Schwifty';
   font-size: vars.$mobile_font_mod * vars.$mobile_font_mod *

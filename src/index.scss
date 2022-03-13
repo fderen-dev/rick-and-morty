@@ -34,6 +34,7 @@ h4,
 h5 {
   font-family: 'Get Schwifty';
   color: vars.$color_white;
+  @include mixins.h-coloring;
 }
 
 h1 {
