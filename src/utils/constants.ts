@@ -14,3 +14,5 @@ export enum Routes {
   Home = '/',
   Characters = '/characters'
 }
+
+export const QUOTES_API_URL = 'http://loremricksum.com/api/';
