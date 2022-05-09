@@ -6,6 +6,8 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';
 import './i18n';
 
+import { QuotesContextProvider } from 'components/Quotes/QuotesContext';
+
 import { ModalProvider } from 'context/ModalContext';
 
 import App from './App';
@@ -22,8 +24,10 @@ ReactDOM.render(
         <QueryClientProvider client={queryClient}>
           <IconContext.Provider value={{ color: '#000' }}>
             <ModalProvider>
-              <App />
-              <ReactQueryDevtools initialIsOpen={false} />
+              <QuotesContextProvider>
+                <App />
+                <ReactQueryDevtools initialIsOpen={false} />
+              </QuotesContextProvider>
             </ModalProvider>
           </IconContext.Provider>
         </QueryClientProvider>
