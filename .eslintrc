@@ -18,9 +18,7 @@
   "globals": {
     "JSX": true
   },
-  "plugins": [
-    "simple-import-sort", "import", "react", "prettier"
-  ],
+  "plugins": ["simple-import-sort", "import", "react", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -33,7 +31,7 @@
   ],
   "rules": {
     "no-console": "warn",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "no-underscore-dangle": "off",
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
@@ -63,9 +61,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts?(x)"
-      ],
+      "files": ["**/*.ts?(x)"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaFeatures": {
@@ -75,12 +71,11 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
       },
-      "plugins": [
-        "@typescript-eslint"
-      ],
+      "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/no-array-constructor": "warn",
         "no-array-constructor": "off",
+        "@typescript-eslint/no-unused-vars": ["warn"],
         "simple-import-sort/imports": [
           "error",
           {
