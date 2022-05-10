@@ -1,0 +1,29 @@
+@use 'styles/variables.scss' as vars;
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: vars.$color_black_semi_transparent;
+  z-index: vars.$z_index_foreground;
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.image {
+  animation: spinning 3s forwards infinite linear;
+
+  &.absolutelyCentered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
