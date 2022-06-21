@@ -9,7 +9,7 @@ import { Quote } from './types';
 
 interface ContextState {
   clearQuotes: () => void;
-  fetchQuotes: () => void;
+  fetchQuotes: (amount?: number) => void;
   pickQuote: () => Quote | undefined;
   areQuotesLoading: boolean;
   quotes?: Array<Quote>;
@@ -21,7 +21,7 @@ export const QuotesContextProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(quotesReducer, initialState);
   const { quotes, isLoading: areQuotesLoading } = state;
 
-  const fetchQuotes = useCallback(async (amount: number = 2) => {
+  const fetchQuotes = useCallback(async (amount: number = 10) => {
     dispatch(creators.setIsLoadingActionCreator(true));
 
     try {
