@@ -16,7 +16,11 @@ export const Navigation: VFC = () => {
   return (
     <Navbar
       Logo={
-        <NavbarItem to={Routes.Home} className={styles.logoContainer}>
+        <NavbarItem
+          to={Routes.Home}
+          className={styles.logoContainer}
+          showActive={false}
+        >
           <img src={logo} alt={t('navbar.logo.alt')} width={48} height={48} />
         </NavbarItem>
       }
