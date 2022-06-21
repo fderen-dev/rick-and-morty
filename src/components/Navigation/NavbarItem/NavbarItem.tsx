@@ -8,18 +8,22 @@ const cx = classNames.bind(styles);
 interface NavbarItemProps extends Pick<LinkProps, 'to'> {
   text?: string;
   className?: string;
+  showActive?: boolean;
 }
 
 export const NavbarItem: FC<NavbarItemProps> = ({
   to,
   text,
   className,
-  children
+  children,
+  showActive = true
 }) => {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => cx(styles.link, { isActive }, className)}
+      className={({ isActive }) =>
+        cx(styles.link, { isActive: isActive && showActive }, className)
+      }
     >
       {text && <span className={styles.text}>{text}</span>}
       {children}

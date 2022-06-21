@@ -1,8 +1,12 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { IconContext } from 'react-icons';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';
 import './i18n';
+
+import { QuotesContextProvider } from 'components/Quotes/QuotesContext';
 
 import { ModalProvider } from 'context/ModalContext';
 
@@ -11,15 +15,22 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <StrictMode>
     <Suspense fallback="loading">
       <BrowserRouter>
-        <IconContext.Provider value={{ color: '#000' }}>
-          <ModalProvider>
-            <App />
-          </ModalProvider>
-        </IconContext.Provider>
+        <QueryClientProvider client={queryClient}>
+          <IconContext.Provider value={{ color: '#000' }}>
+            <ModalProvider>
+              <QuotesContextProvider>
+                <App />
+                <ReactQueryDevtools initialIsOpen={false} />
+              </QuotesContextProvider>
+            </ModalProvider>
+          </IconContext.Provider>
+        </QueryClientProvider>
       </BrowserRouter>
     </Suspense>
   </StrictMode>,
