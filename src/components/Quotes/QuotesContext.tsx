@@ -55,21 +55,21 @@ export const QuotesContextProvider: FC = ({ children }) => {
 
   const pickQuote = useCallback((): Quote | undefined => {
     if (quotes !== undefined) {
-      let quote: Quote = sample(quotes) as Quote;
+      let quote: Quote = sample(quotes)!;
       let counter = 1;
 
       while (quote?.isSeen) {
-        quote = sample(quotes) as Quote;
+        quote = sample(quotes)!;
         counter++;
 
         if (counter === quotes.length) {
-          throw new Error('Are quotes were seen');
+          throw new Error('All quotes were seen');
         }
       }
 
       dispatch(creators.setQuoteSeenActionCreator(quote.id, true));
       return quote;
-    }
+    } else throw new Error('No quotes');
   }, [quotes]);
 
   const clearQuotes = useCallback(() => {

@@ -25,23 +25,25 @@ export const useQuotes = (timeout: number = 10000) => {
       }
     };
 
+    const handleQuotePick = () => {
+      try {
+        setQuote(pickQuote());
+      } catch {
+        _clearInterval();
+        clearQuotes();
+      }
+    };
+
     if (!quotes?.length) {
       fetchQuotes();
 
       return;
     }
 
-    setQuote(pickQuote());
+    handleQuotePick();
 
     if (!intervalHandle) {
-      intervalHandle = setInterval(() => {
-        try {
-          setQuote(pickQuote());
-        } catch {
-          _clearInterval();
-          clearQuotes();
-        }
-      }, timeout);
+      intervalHandle = setInterval(handleQuotePick, timeout);
     }
 
     return () => {
