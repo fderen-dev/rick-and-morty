@@ -4,7 +4,7 @@ import {
   ReactNode,
   useCallback,
   useContext,
-  useState
+  useState,
 } from 'react';
 
 import { Modal } from 'components/Modal';
@@ -22,7 +22,7 @@ interface ModalOptions {
 
 const modalInitialState: ModalState = {
   content: null,
-  options: undefined
+  options: undefined,
 };
 
 interface IModalContext {
@@ -41,7 +41,7 @@ const ModalContext = createContext<IModalContext>({
   isOpen: false,
   open: (content: ModalState['content'], options?: ModalState['options']) => {
     throw initialisationError;
-  }
+  },
 });
 
 export const ModalProvider: FC = ({ children }) => {

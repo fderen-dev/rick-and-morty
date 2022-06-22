@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 export enum Variants {
   RAW = 'raw',
-  PRIMARY = 'primary'
+  PRIMARY = 'primary',
 }
 
 interface Props extends ComponentProps<'button'> {

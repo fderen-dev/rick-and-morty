@@ -16,7 +16,7 @@ export const NavbarItem: FC<NavbarItemProps> = ({
   text,
   className,
   children,
-  showActive = true
+  showActive = true,
 }) => {
   return (
     <NavLink

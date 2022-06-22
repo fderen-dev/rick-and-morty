@@ -18,7 +18,7 @@ const MenuMobile: FC = ({ children }) => {
   const {
     close: closeModal,
     isOpen: isModalOpen,
-    open: openModal
+    open: openModal,
   } = useModalContext();
 
   const toggleModal = isModalOpen

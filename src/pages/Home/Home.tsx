@@ -19,7 +19,7 @@ export const HomePage: VFC = () => {
           flexDirection: 'column',
           height: '100%',
           justifyContent: 'center',
-          width: '100%'
+          width: '100%',
         }}
       >
         <h1 style={{ margin: '32px 0' }}>{t('homePage.header')}</h1>

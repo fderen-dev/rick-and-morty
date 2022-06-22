@@ -46,13 +46,13 @@ export const LanguageSelector: VFC<LanguageSelectorProps> = ({ vertical }) => {
       ([key, value]) =>
         ({
           code: key.toLowerCase(),
-          label: value
+          label: value,
         } as Language)
     )
   );
   const [currentLanguage, setCurrentLaguage] = useState<Language>({
     code: i18n.language,
-    label: languages.find((lang) => lang.code === i18n.language)?.label!
+    label: languages.find((lang) => lang.code === i18n.language)?.label!,
   });
   const { value: isOpen, toggle } = useToggle();
 
