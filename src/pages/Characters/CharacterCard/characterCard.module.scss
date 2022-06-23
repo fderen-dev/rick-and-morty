@@ -1,5 +1,32 @@
+@use 'styles/mixins.scss';
+@use 'styles/variables.scss' as vars;
+
+$shift: 30px;
+
 .card {
-  .list {
-    list-style-type: none;
+  position: relative;
+
+  .generalsContainer {
+    position: relative;
+    bottom: $shift;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .image {
+      border: solid vars.$color_blue;
+    }
+
+    .name {
+      width: 65%;
+      text-align: center;
+      margin: 0 auto;
+      background-color: black;
+      color: white;
+      padding: 8px;
+      position: relative;
+      bottom: $shift;
+      @include mixins.h3-like;
+    }
   }
 }

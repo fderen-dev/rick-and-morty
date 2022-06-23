@@ -16,11 +16,14 @@ export const CharacterCard: FC<CharacterCardProps> = ({
 }) => {
   return (
     <Card className={styles.card}>
-      <ul className={styles.list}>
-        {Object.entries(character).map(([key, value]) => (
-          <li key={key}>{`${key}: ${JSON.stringify(value, null, 2)}`}</li>
-        ))}
-      </ul>
+      <div className={styles.generalsContainer}>
+        <img
+          src={character.image}
+          alt={`Drawing of ${character.name}`}
+          className={styles.image}
+        />
+        <p className={styles.name}>{character.name}</p>
+      </div>
       {children}
     </Card>
   );
