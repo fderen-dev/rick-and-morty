@@ -20,7 +20,7 @@ enum CharacterGender {
 
 type CharacterGenderType = `${CharacterGender}`;
 
-export type Character = {
+export type CharacterData = {
   id: number;
   name: string;
   status: CharacterStatusType;
@@ -30,7 +30,28 @@ export type Character = {
   origin: DetailedTrait;
   location: DetailedTrait;
   image: string;
-  episode: Array<string>;
+  episode?: Array<string>;
   url: string;
   created: string;
+};
+
+export type Character = Omit<
+  CharacterData,
+  'origin' | 'location' | 'episode' | 'url' | 'created'
+> & {
+  origin: string;
+  location: string;
+  created: Date;
+};
+
+type PaginationInfo = {
+  count: number;
+  pages: number;
+  next: string | null;
+  prev: string | null;
+};
+
+export type CharactersData = {
+  info: PaginationInfo;
+  results: Array<CharacterData>;
 };
