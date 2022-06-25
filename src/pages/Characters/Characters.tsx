@@ -61,7 +61,14 @@ export const CharactersPage: VFC = () => {
       <main className={styles.main}>
         <h1 className={styles.header}>{t('charactersPage.header')}</h1>
         <section>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '32px',
+              justifyContent: 'center',
+            }}
+          >
             {characters.length > 0 &&
               characters.map((char) => (
                 <CharacterCard character={char} key={char.id} />

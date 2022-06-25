@@ -3,30 +3,59 @@
 
 $shift: 30px;
 
-.card {
+.container {
   position: relative;
+  width: vars.$min_width - 50px;
+  height: 340px;
 
-  .generalsContainer {
+  .card {
     position: relative;
-    bottom: $shift;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in;
 
-    .image {
-      border: solid vars.$color_blue;
+    &.detailed {
+      transform: scale(1.1);
+      z-index: 600;
+      height: auto;
     }
 
-    .name {
-      width: 65%;
-      text-align: center;
-      margin: 0 auto;
-      background-color: black;
-      color: white;
-      padding: 8px;
+    .generalsContainer {
       position: relative;
       bottom: $shift;
-      @include mixins.h3-like;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .image {
+        border: solid vars.$color_blue;
+        box-shadow: 0 3px 20px green;
+      }
+
+      .name {
+        width: 75%;
+        text-align: center;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        padding: 8px;
+        position: relative;
+        bottom: $shift;
+        margin-bottom: -$shift;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+        @include mixins.h4-like;
+      }
+    }
+
+    .details {
+      .list {
+        list-style: none;
+
+        .item {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
     }
   }
 }
