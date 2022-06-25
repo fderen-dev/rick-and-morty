@@ -41,7 +41,7 @@ export type Character = Omit<
 > & {
   origin: string;
   location: string;
-  created: Date;
+  created: string;
 };
 
 type PaginationInfo = {
