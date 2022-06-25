@@ -23,6 +23,28 @@
   },
   "charactersPage": {
     "title": "Przeglądarka informacji o Ricku i Mortym | Postaci",
-    "header": "Postaci"
+    "header": "Postaci",
+    "character": {
+      "status": "Status",
+      "species": "Gatunek",
+      "gender": "Płeć",
+      "origin": "Pochodzenie",
+      "location": "Lokalizacja",
+      "created": "Data stworzenia",
+      "statuses": {
+        "alive": "Żywy",
+        "dead": "Martwy",
+        "unknown": "Nieznany"
+      },
+      "speciesNames": {
+        "human": "Człowiek",
+        "alien": "Kosmita"
+      },
+      "genders": {
+        "male": "Męska",
+        "female": "Żeńska",
+        "unknown": "Nieznana"
+      }
+    }
   }
 }

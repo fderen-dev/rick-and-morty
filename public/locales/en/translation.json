@@ -23,6 +23,28 @@
   },
   "charactersPage": {
     "title": "Rick and Morty data browser | Characters",
-    "header": "Characters"
+    "header": "Characters",
+    "character": {
+      "status": "Status",
+      "species": "Species",
+      "gender": "Gender",
+      "origin": "Origin",
+      "location": "Location",
+      "created": "Created",
+      "statuses": {
+        "alive": "Alive",
+        "dead": "Dead",
+        "unknown": "Unknown"
+      },
+      "speciesNames": {
+        "human": "Human",
+        "alien": "Alien"
+      },
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "unknown": "Uknown"
+      }
+    }
   }
 }
