@@ -46,6 +46,7 @@ $selection-animation-timing-function: ease-in;
         bottom: $shift;
         margin-bottom: -$shift;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+        font-weight: vars.$font_weight_regular;
         @include mixins.h4-like;
       }
     }

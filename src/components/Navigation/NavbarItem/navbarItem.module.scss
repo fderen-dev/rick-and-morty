@@ -17,4 +17,5 @@
 
 .text {
   @include mixins.h3-like;
+  font-weight: vars.$font_weight_regular;
 }

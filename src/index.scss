@@ -28,7 +28,6 @@ html {
   background-size: cover;
   background-color: vars.$color_black;
   font-family: 'Amatic SC';
-  font-weight: vars.$font_weight_bold;
   @include mixins.regular-text();
 }
 
@@ -80,6 +79,12 @@ h3 {
     vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$min_font,
     vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$min_font
   );
+}
+
+span,
+div,
+p {
+  font-weight: vars.$font_weight_bold;
 }
 
 .sr-only:not(:focus):not(:active) {
