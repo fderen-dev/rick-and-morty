@@ -1,5 +1,5 @@
-@use "styles/variables.scss" as vars;
-@use "styles/mixins.scss";
+@use 'styles/variables.scss' as vars;
+@use 'styles/mixins.scss';
 @import 'styles/normalize.scss';
 
 @font-face {
@@ -8,17 +8,27 @@
     url(./assets/fonts/get_schwifty.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Amatic SC';
+  font-weight: 400;
+  src: local('Amatic SC'),
+    url(./assets/fonts/AmaticSC-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Amatic SC';
+  font-weight: 700;
+  src: local('Amatic SC'),
+    url(./assets/fonts/AmaticSC-Bold.ttf) format('truetype');
+}
+
 html {
   background: url('./assets/images/background.jpg') no-repeat center center
     fixed;
   background-size: cover;
-  background-color: black;
-  @include mixins.fluid-type(
-    vars.$min_width,
-    vars.$max_width,
-    vars.$min_font,
-    vars.$max_font
-  );
+  background-color: vars.$color_black;
+  font-family: 'Amatic SC';
+  @include mixins.regular-text();
 }
 
 body,
@@ -69,6 +79,12 @@ h3 {
     vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$min_font,
     vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$min_font
   );
+}
+
+span,
+div,
+p {
+  font-weight: vars.$font_weight_bold;
 }
 
 .sr-only:not(:focus):not(:active) {

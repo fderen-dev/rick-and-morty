@@ -24,7 +24,7 @@ export const Modal: FC<ModalProps> = ({
   overlayClassName,
   children,
   showCloseButton = true,
-  shouldCloseOnOverlayClick = false
+  shouldCloseOnOverlayClick = false,
 }) => {
   const { t } = useTranslation();
 

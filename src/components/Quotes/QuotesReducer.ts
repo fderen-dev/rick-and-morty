@@ -5,7 +5,7 @@ enum QuotesActionType {
   ClearQuotes = 'CLEAR_QUOTES',
   SetIsLoading = 'SET_IS_LOADING',
   SetError = 'SET_ERROR',
-  SetSeen = 'SET_SEEN'
+  SetSeen = 'SET_SEEN',
 }
 
 type SetQuoteSeenPayload = { id: string; isSeen: boolean };
@@ -20,22 +20,22 @@ interface QuotesAction {
 
 const setQuotesActionCreator = (quotes: Array<Quote>): QuotesAction => ({
   payload: { quotes },
-  type: QuotesActionType.SetQuotes
+  type: QuotesActionType.SetQuotes,
 });
 
 const clearQuotesActionCreator = (): QuotesAction => ({
   payload: undefined,
-  type: QuotesActionType.ClearQuotes
+  type: QuotesActionType.ClearQuotes,
 });
 
 const setIsLoadingActionCreator = (isLoading: boolean): QuotesAction => ({
   payload: { isLoading },
-  type: QuotesActionType.SetIsLoading
+  type: QuotesActionType.SetIsLoading,
 });
 
 const setErrorActionCreator = (errorMessage: string): QuotesAction => ({
   payload: { errorMessage },
-  type: QuotesActionType.SetError
+  type: QuotesActionType.SetError,
 });
 
 const setQuoteSeenActionCreator = (
@@ -43,7 +43,7 @@ const setQuoteSeenActionCreator = (
   isSeen: boolean
 ): QuotesAction => ({
   payload: { id, isSeen },
-  type: QuotesActionType.SetSeen
+  type: QuotesActionType.SetSeen,
 });
 
 interface QuotesState {
@@ -57,7 +57,7 @@ export const initialState: QuotesState = {
   error: undefined,
   hasError: false,
   isLoading: false,
-  quotes: undefined
+  quotes: undefined,
 };
 
 const markQuoteSeen = (
@@ -84,7 +84,7 @@ export const quotesReducer = (
         ...state,
         error: undefined,
         hasError: false,
-        isLoading: (action.payload as SetIsLoadingPayload).isLoading
+        isLoading: (action.payload as SetIsLoadingPayload).isLoading,
       };
     }
     case QuotesActionType.SetError: {
@@ -92,7 +92,7 @@ export const quotesReducer = (
         ...state,
         error: (action.payload as SetErrorPayload).errorMessage,
         hasError: true,
-        isLoading: false
+        isLoading: false,
       };
     }
     case QuotesActionType.SetQuotes: {
@@ -101,13 +101,13 @@ export const quotesReducer = (
         error: undefined,
         hasError: false,
         isLoading: false,
-        quotes: (action.payload as SetQuotesActionPayload).quotes
+        quotes: (action.payload as SetQuotesActionPayload).quotes,
       };
     }
     case QuotesActionType.ClearQuotes: {
       return {
         ...state,
-        quotes: undefined
+        quotes: undefined,
       };
     }
     case QuotesActionType.SetSeen: {
@@ -123,7 +123,7 @@ export const creators = {
   setErrorActionCreator,
   setIsLoadingActionCreator,
   setQuoteSeenActionCreator,
-  setQuotesActionCreator
+  setQuotesActionCreator,
 };
 
 export default quotesReducer;

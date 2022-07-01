@@ -1,4 +1,4 @@
-@use "styles/variables.scss" as vars;
+@use 'styles/variables.scss' as vars;
 
 .app {
   position: relative;
@@ -8,6 +8,9 @@
 }
 
 .main {
-  height: 100%;
   position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: vars.$max_width;
+  margin: 0 auto;
 }

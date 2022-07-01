@@ -41,7 +41,7 @@ export const QuotesContextProvider: FC = ({ children }) => {
             data.map((entry) => ({
               id: nanoid(),
               isSeen: false,
-              text: entry
+              text: entry,
             }))
           )
         );

@@ -6,13 +6,8 @@ import { useQuotesContext } from './QuotesContext';
 import { Quote } from './types';
 
 export const useQuotes = (timeout: number = 10000) => {
-  const {
-    areQuotesLoading,
-    clearQuotes,
-    fetchQuotes,
-    pickQuote,
-    quotes
-  } = useQuotesContext();
+  const { areQuotesLoading, clearQuotes, fetchQuotes, pickQuote, quotes } =
+    useQuotesContext();
   const [quote, setQuote] = useState<Quote>();
 
   useEffect(() => {

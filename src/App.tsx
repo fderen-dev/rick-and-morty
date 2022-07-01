@@ -15,8 +15,10 @@ function App(): JSX.Element {
         <title>{t('title')}</title>
       </Helmet>
       <div className={styles.app}>
-        <Navigation />
-        <Router />
+        <div className={styles.main}>
+          <Navigation />
+          <Router />
+        </div>
       </div>
     </>
   );
