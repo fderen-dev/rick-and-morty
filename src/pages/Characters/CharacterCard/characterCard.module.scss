@@ -64,10 +64,15 @@ $selection-animation-timing-function: ease-in;
           $selection-animation-timing-function;
 
         .item {
-          display: flex;
-          justify-content: space-between;
-          font-family: 'Amatic SC';
-          font-weight: 700;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          .key {
+          }
+
+          .value {
+            word-break: break-word;
+          }
         }
       }
 

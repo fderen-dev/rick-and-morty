@@ -30,8 +30,8 @@ const CharacterCardListItem: VFC<CharacterCardListItemProps> = ({
 
   return (
     <li className={styles.item}>
-      <span>{`${t(labelTransKey)}:`}</span>
-      <span>{valueToDisplay}</span>
+      <span className={styles.key}>{`${t(labelTransKey)}:`}</span>
+      <span className={styles.value}>{valueToDisplay}</span>
     </li>
   );
 };
