@@ -10,6 +10,7 @@ import styles from './characterCard.module.scss';
 
 const cx = classNames.bind({
   detailed: styles.detailed,
+  visible: styles.visible,
 });
 
 interface CharacterCardListItemProps {
@@ -93,36 +94,34 @@ export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
         image={character.image}
         className={cx({ detailed: isSelected })}
       >
-        {isSelected && (
-          <p className={styles.details}>
-            <ul className={styles.list}>
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.status"
-                valueTransKey={`charactersPage.character.statuses.${character.status.toLowerCase()}`}
-              />
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.species"
-                valueTransKey={`charactersPage.character.speciesNames.${character.species.toLowerCase()}`}
-              />
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.gender"
-                valueTransKey={`charactersPage.character.genders.${character.gender.toLowerCase()}`}
-              />
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.origin"
-                value={character.origin}
-              />
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.location"
-                value={character.location}
-              />
-              <CharacterCardListItem
-                labelTransKey="charactersPage.character.created"
-                value={character.created}
-              />
-            </ul>
-          </p>
-        )}
+        <p className={cx(styles.details, { visible: isSelected })}>
+          <ul className={styles.list}>
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.status"
+              valueTransKey={`charactersPage.character.statuses.${character.status.toLowerCase()}`}
+            />
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.species"
+              valueTransKey={`charactersPage.character.speciesNames.${character.species.toLowerCase()}`}
+            />
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.gender"
+              valueTransKey={`charactersPage.character.genders.${character.gender.toLowerCase()}`}
+            />
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.origin"
+              value={character.origin}
+            />
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.location"
+              value={character.location}
+            />
+            <CharacterCardListItem
+              labelTransKey="charactersPage.character.created"
+              value={character.created}
+            />
+          </ul>
+        </p>
       </SimpleCharacterCard>
     </div>
   );

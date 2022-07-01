@@ -2,6 +2,8 @@
 @use 'styles/variables.scss' as vars;
 
 $shift: 30px;
+$selection-animation-time: 0.3s;
+$selection-animation-timing-function: ease-in;
 
 .container {
   position: relative;
@@ -12,7 +14,8 @@ $shift: 30px;
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.3s ease-in;
+    transition: transform $selection-animation-time
+      $selection-animation-timing-function;
 
     &.detailed {
       transform: scale(1.1);
@@ -48,12 +51,29 @@ $shift: 30px;
     }
 
     .details {
+      visibility: hidden;
+      max-height: 0;
+      transition: max-height $selection-animation-time
+        $selection-animation-timing-function;
+
       .list {
         list-style: none;
+        opacity: 0;
+        transition: opacity $selection-animation-time
+          $selection-animation-timing-function;
 
         .item {
           display: flex;
           justify-content: space-between;
+        }
+      }
+
+      &.visible {
+        visibility: visible;
+        max-height: 1337px;
+
+        .list {
+          opacity: 1;
         }
       }
     }
