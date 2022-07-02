@@ -3,13 +3,13 @@ type DetailedTrait = {
   url: string;
 };
 
-enum CharacterStatus {
+export enum CharacterStatus {
   ALIVE = 'Alive',
   DEAD = 'Dead',
   UNKNOWN = 'Uknown',
 }
 
-type CharacterStatusType = `${CharacterStatus}`;
+export type CharacterStatusType = `${CharacterStatus}`;
 
 enum CharacterGender {
   FEMALE = 'Female',

@@ -1,10 +1,18 @@
-import { FC, FocusEvent, MouseEvent, useState, VFC } from 'react';
+import {
+  CSSProperties,
+  FC,
+  FocusEvent,
+  MouseEvent,
+  useState,
+  VFC,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
 import { Card, CardProps } from 'components/Card';
 
 import { Character } from './types';
+import { getCharacterStatusColor } from './utils';
 
 import styles from './characterCard.module.scss';
 
@@ -17,12 +25,14 @@ interface CharacterCardListItemProps {
   labelTransKey: string;
   valueTransKey?: string;
   value?: string;
+  valueStyles?: CSSProperties;
 }
 
 const CharacterCardListItem: VFC<CharacterCardListItemProps> = ({
   labelTransKey,
   valueTransKey,
   value,
+  valueStyles,
 }) => {
   const { t } = useTranslation();
 
@@ -31,7 +41,9 @@ const CharacterCardListItem: VFC<CharacterCardListItemProps> = ({
   return (
     <li className={styles.item}>
       <span className={styles.key}>{`${t(labelTransKey)}:`}</span>
-      <span className={styles.value}>{valueToDisplay}</span>
+      <span className={styles.value} style={valueStyles}>
+        {valueToDisplay}
+      </span>
     </li>
   );
 };
@@ -99,6 +111,9 @@ export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
             <CharacterCardListItem
               labelTransKey="charactersPage.character.status"
               valueTransKey={`charactersPage.character.statuses.${character.status.toLowerCase()}`}
+              valueStyles={{
+                color: getCharacterStatusColor(character.status),
+              }}
             />
             <CharacterCardListItem
               labelTransKey="charactersPage.character.species"

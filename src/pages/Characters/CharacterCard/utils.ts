@@ -1,4 +1,9 @@
-import { Character, CharacterData } from './types';
+import {
+  Character,
+  CharacterData,
+  CharacterStatus,
+  CharacterStatusType,
+} from './types';
 
 export const parseCharacterData = (character: CharacterData): Character => {
   const char = {
@@ -11,4 +16,17 @@ export const parseCharacterData = (character: CharacterData): Character => {
   delete char.episode;
 
   return char;
+};
+
+export const getCharacterStatusColor = (status: CharacterStatusType) => {
+  switch (status) {
+    case CharacterStatus.ALIVE: {
+      return 'green';
+    }
+    case CharacterStatus.DEAD: {
+      return 'red';
+    }
+    default:
+      return 'black';
+  }
 };
