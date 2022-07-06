@@ -69,11 +69,9 @@ $height: 340px;
           display: grid;
           grid-template-columns: 1fr 1fr;
 
-          .key {
-          }
-
           .value {
             word-break: break-word;
+            align-self: flex-end;
           }
         }
       }
