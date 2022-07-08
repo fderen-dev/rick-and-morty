@@ -39,7 +39,9 @@
       "speciesNames": {
         "human": "Człowiek",
         "alien": "Kosmita",
-        "animal": "Zwierzę"
+        "animal": "Zwierzę",
+        "mythological creature": "Postać mitologiczna",
+        "unknown": "Nieznany"
       },
       "genders": {
         "male": "Męska",
