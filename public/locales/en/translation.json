@@ -38,7 +38,8 @@
       },
       "speciesNames": {
         "human": "Human",
-        "alien": "Alien"
+        "alien": "Alien",
+        "animal": "Animal"
       },
       "genders": {
         "male": "Male",

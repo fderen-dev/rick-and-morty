@@ -38,7 +38,8 @@
       },
       "speciesNames": {
         "human": "Człowiek",
-        "alien": "Kosmita"
+        "alien": "Kosmita",
+        "animal": "Zwierzę"
       },
       "genders": {
         "male": "Męska",
