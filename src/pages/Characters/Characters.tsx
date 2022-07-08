@@ -1,48 +1,63 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { VFC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useInfiniteQuery } from 'react-query';
+import { InfiniteData, useInfiniteQuery } from 'react-query';
+import axios from 'axios';
 
 import { Spinner } from 'components/Spinner/Spinner';
 
 import { RICK_AND_MORTY_API_URL } from 'utils/constants';
 
 import {
-  CharacterData,
-  CharactersData,
+  Character,
+  CharactersResponse,
   parseCharacterData,
 } from './CharacterCard';
 import { Grid } from './Grid';
 
 import styles from './characters.module.scss';
 
+const getCharacters = (
+  infiniteData?: InfiniteData<CharactersResponse>
+): Array<Character> => {
+  if (!infiniteData) return [];
+
+  return infiniteData.pages.reduce((acc, curr) => {
+    return [...acc, ...curr.results.map(parseCharacterData)];
+  }, [] as Array<Character>);
+};
+
 export const CharactersPage: VFC = () => {
   const { t } = useTranslation();
-  const fetchCharacters = async (page: number): Promise<CharactersData> => {
-    const resp = await fetch(
-      `${RICK_AND_MORTY_API_URL}character/?page=${page}`
+  const fetchCharacters = async ({
+    pageParam = 1,
+  }): Promise<CharactersResponse> => {
+    const { data, status } = await axios.get<CharactersResponse>(
+      `${RICK_AND_MORTY_API_URL}character/?page=${pageParam}`
     );
 
-    if (!resp.ok) {
+    if (status !== 200) {
       throw new Error("Couldn't fetch characters");
     }
 
-    return resp.json();
+    return data;
   };
 
-  const { data, isError, error, isLoading, fetchNextPage, hasNextPage } =
-    useInfiniteQuery<
-      CharactersData,
-      (page: number) => Promise<CharactersData>,
-      CharacterData
-    >('characters', ({ pageParam = 1 }) => fetchCharacters(pageParam), {
-      getNextPageParam: (lastPage) =>
-        lastPage.info.next
-          ? parseInt(lastPage.info.next.split('page=')[1])
-          : undefined,
-    });
+  const { data, isError, error, fetchNextPage, hasNextPage } = useInfiniteQuery<
+    CharactersResponse,
+    string
+  >(['characters'], fetchCharacters, {
+    getNextPageParam: (lastPage) => {
+      if (lastPage.info.next) {
+        return lastPage.info.next.split('page=')[1];
+      } else {
+        return undefined;
+      }
+    },
+  });
+
+  const hasData = data?.pages !== undefined && data.pages.length > 0;
 
   return (
     <>
@@ -59,7 +74,7 @@ export const CharactersPage: VFC = () => {
             hasMore={Boolean(hasNextPage)}
             loader={<Spinner absolutelyCentered position="absolute" />}
           >
-            <Grid characters={data?.pages.map(parseCharacterData) ?? []} />
+            {hasData && <Grid characters={getCharacters(data)} />}
           </InfiniteScroll>
         </section>
       </main>
