@@ -38,12 +38,21 @@
       },
       "speciesNames": {
         "human": "Human",
-        "alien": "Alien"
+        "alien": "Alien",
+        "animal": "Animal",
+        "mythological creature": "Mythological creature",
+        "unknown": "Unknown",
+        "poopybutthole": "Poopybutthole",
+        "humanoid": "Humanoid",
+        "cronenberg": "Cronenberg",
+        "disease": "Disease",
+        "robot": "Robot"
       },
       "genders": {
         "male": "Male",
         "female": "Female",
-        "unknown": "Uknown"
+        "unknown": "Uknown",
+        "genderless": "Genderless"
       }
     }
   }

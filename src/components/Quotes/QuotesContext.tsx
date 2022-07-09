@@ -1,4 +1,5 @@
 import { createContext, FC, useCallback, useContext, useReducer } from 'react';
+import axios from 'axios';
 import sample from 'lodash/sample';
 import { nanoid } from 'nanoid';
 
@@ -15,6 +16,10 @@ interface ContextState {
   quotes?: Array<Quote>;
 }
 
+interface QuotesResponse {
+  data: Array<string>;
+}
+
 const QuotesContext = createContext({} as ContextState);
 
 export const QuotesContextProvider: FC = ({ children }) => {
@@ -25,20 +30,16 @@ export const QuotesContextProvider: FC = ({ children }) => {
     dispatch(creators.setIsLoadingActionCreator(true));
 
     try {
-      const resp = await fetch(
+      const { data: resp, status } = await axios.get<QuotesResponse>(
         `${QUOTES_API_URL}?paragraphs=${amount}&quotes=${1}`
       );
 
-      if (!resp.ok) {
-        const message = await resp.text();
-
-        throw message;
+      if (status !== 200) {
+        throw new Error('Could not fetch quotes');
       } else {
-        const { data }: { data: Array<string> } = await resp.json();
-
         dispatch(
           creators.setQuotesActionCreator(
-            data.map((entry) => ({
+            resp.data.map((entry) => ({
               id: nanoid(),
               isSeen: false,
               text: entry,

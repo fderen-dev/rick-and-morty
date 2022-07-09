@@ -51,7 +51,7 @@ type PaginationInfo = {
   prev: string | null;
 };
 
-export type CharactersData = {
+export type CharactersResponse = {
   info: PaginationInfo;
   results: Array<CharacterData>;
 };
