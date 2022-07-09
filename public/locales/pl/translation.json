@@ -41,12 +41,18 @@
         "alien": "Kosmita",
         "animal": "Zwierzę",
         "mythological creature": "Postać mitologiczna",
-        "unknown": "Nieznany"
+        "unknown": "Nieznany",
+        "poopybutthole": "Poopybutthole",
+        "humanoid": "Humanoid",
+        "cronenberg": "Cronenberg",
+        "disease": "Choroba",
+        "robot": "Robot"
       },
       "genders": {
         "male": "Męska",
         "female": "Żeńska",
-        "unknown": "Nieznana"
+        "unknown": "Nieznana",
+        "genderless": "Bezpłciowa"
       }
     }
   }
