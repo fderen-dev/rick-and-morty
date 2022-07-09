@@ -11,18 +11,20 @@ interface SpinnerProps {
   maxWidth?: string;
   position?: 'relative' | 'absolute';
   absolutelyCentered?: boolean;
+  className?: string;
 }
 
 export const Spinner: VFC<SpinnerProps> = ({
   maxWidth = '150px',
   position = 'absolute',
   absolutelyCentered = true,
+  className,
 }) => {
   return (
     <img
       src={portal}
       width="100%"
-      className={cx(styles.image, {
+      className={cx(styles.image, className, {
         [styles.absolutelyCentered]: absolutelyCentered,
       })}
       alt="Green portal"

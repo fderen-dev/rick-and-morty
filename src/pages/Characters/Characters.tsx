@@ -76,7 +76,7 @@ export const CharactersPage: VFC = () => {
             dataLength={data?.pages.length ?? 0}
             next={fetchNextPage}
             hasMore={Boolean(hasNextPage)}
-            loader={<Spinner absolutelyCentered position="absolute" />}
+            loader={<Spinner position="relative" className={styles.spinner} />}
           >
             {hasData && <Grid characters={getCharacters(data)} />}
           </InfiniteScroll>
