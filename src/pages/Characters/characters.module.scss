@@ -8,9 +8,18 @@
 }
 
 .header {
-  margin: 32px 0;
+  margin: 32px auto;
+  text-align: center;
 }
 
 .section {
   width: 100%;
+}
+
+.quotes {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
 }

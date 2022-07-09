@@ -25,11 +25,12 @@ export const Navigation: VFC = () => {
         </NavbarItem>
       }
     >
-      <NavbarItem
+      {/* TODO: characters, episodes pages */}
+      {/* <NavbarItem
         to={Routes.Characters}
         text={t('navbar.routes.characters')}
         className={styles.navbarItem}
-      />
+      /> */}
     </Navbar>
   );
 };

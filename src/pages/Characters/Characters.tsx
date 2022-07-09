@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { InfiniteData, useInfiniteQuery } from 'react-query';
 import axios from 'axios';
 
+import { Quotes } from 'components/Quotes/Quotes';
 import { Spinner } from 'components/Spinner/Spinner';
 
 import { RICK_AND_MORTY_API_URL } from 'utils/constants';
@@ -62,11 +63,14 @@ export const CharactersPage: VFC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('charactersPage.title')}</title>
+        <title>{t('homePage.title')}</title>
       </Helmet>
       <main className={styles.main}>
-        <h1 className={styles.header}>{t('charactersPage.header')}</h1>
+        <section className={styles.quotes}>
+          <Quotes />
+        </section>
         <section className={styles.section}>
+          <h2 className={styles.header}>{t('charactersPage.header')}</h2>
           {isError && <p>{error}</p>}
           <InfiniteScroll
             dataLength={data?.pages.length ?? 0}
