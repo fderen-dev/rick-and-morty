@@ -5,7 +5,7 @@ import { IntervalHandle } from 'utils/types';
 import { useQuotesContext } from './QuotesContext';
 import { Quote } from './types';
 
-export const useQuotes = (timeout: number = 10000) => {
+export const useQuotes = (timeout: number = 10000, quotesToFetch = 10) => {
   const { areQuotesLoading, clearQuotes, fetchQuotes, pickQuote, quotes } =
     useQuotesContext();
   const [quote, setQuote] = useState<Quote>();
@@ -30,7 +30,7 @@ export const useQuotes = (timeout: number = 10000) => {
     };
 
     if (!quotes?.length) {
-      fetchQuotes();
+      fetchQuotes(quotesToFetch);
 
       return;
     }
@@ -44,7 +44,14 @@ export const useQuotes = (timeout: number = 10000) => {
     return () => {
       _clearInterval();
     };
-  }, [timeout, quotes?.length, fetchQuotes, pickQuote, clearQuotes]);
+  }, [
+    quotesToFetch,
+    timeout,
+    quotes?.length,
+    fetchQuotes,
+    pickQuote,
+    clearQuotes,
+  ]);
 
   return { areQuotesLoading, quote };
 };
