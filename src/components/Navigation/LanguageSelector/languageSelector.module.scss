@@ -37,7 +37,7 @@ $transition_time: 0.3s;
 }
 
 .menuListItem {
-  @include mixins.h3-like;
+  @include mixins.h4-like;
   opacity: 0;
 
   &.isOpen {
@@ -47,7 +47,7 @@ $transition_time: 0.3s;
 
 .currentItem {
   z-index: vars.$z_index_foreground;
-  @include mixins.h2-like;
+  @include mixins.h3-like;
 }
 
 // vertical variant
