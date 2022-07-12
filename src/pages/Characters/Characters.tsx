@@ -83,7 +83,7 @@ export const CharactersPage: VFC = () => {
             hasMore={Boolean(hasNextPage)}
             loader={<Spinner position="relative" className={styles.spinner} />}
             scrollableTarget={mainRef}
-            className={styles.infiniteScrollContainer}
+            className={styles.inifiteScrollContainer}
           >
             {hasData && <Grid characters={getCharacters(data)} />}
           </InfiniteScroll>

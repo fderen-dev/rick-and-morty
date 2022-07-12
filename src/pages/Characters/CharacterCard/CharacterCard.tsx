@@ -79,9 +79,13 @@ const SimpleCharacterCard: FC<SimpleCharacterCardProps> = ({
 
 interface CharacterCardProps {
   character: Character;
+  className?: string;
 }
 
-export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
+export const CharacterCard: VFC<CharacterCardProps> = ({
+  character,
+  className,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleFocus = () => setIsSelected(true);
@@ -99,7 +103,7 @@ export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
       onMouseOverCapture={handleFocus}
       onMouseOutCapture={handleBlur}
       onBlurCapture={handleBlur}
-      className={styles.container}
+      className={classNames(styles.container, className)}
     >
       <SimpleCharacterCard
         name={character.name}

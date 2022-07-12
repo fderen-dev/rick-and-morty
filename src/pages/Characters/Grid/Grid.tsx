@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { Character, CharacterCard } from '../CharacterCard';
 
@@ -9,11 +10,18 @@ interface GridProps {
 }
 
 const Grid_: FC<GridProps> = ({ characters }) => (
-  <div className={styles.grid}>
+  <TransitionGroup component="div" className={styles.grid}>
     {characters.map((character) => (
-      <CharacterCard character={character} key={character.id} />
+      <CSSTransition
+        appear
+        classNames="cardTransition"
+        timeout={700}
+        key={character.id}
+      >
+        <CharacterCard character={character} />
+      </CSSTransition>
     ))}
-  </div>
+  </TransitionGroup>
 );
 
 export const Grid = memo(Grid_);
