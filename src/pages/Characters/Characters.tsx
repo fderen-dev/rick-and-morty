@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { useRef, VFC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Quotes } from 'components/Quotes/Quotes';
 import { Spinner } from 'components/Spinner/Spinner';
 
-import { RICK_AND_MORTY_API_URL } from 'utils/constants';
+import { DAY_IN_MILISECONDS, RICK_AND_MORTY_API_URL } from 'utils/constants';
 
 import {
   Character,
@@ -29,21 +29,23 @@ const getCharacters = (
   }, [] as Array<Character>);
 };
 
+const fetchCharacters = async ({
+  pageParam = 1,
+}): Promise<CharactersResponse> => {
+  const { data, status } = await axios.get<CharactersResponse>(
+    `${RICK_AND_MORTY_API_URL}character/?page=${pageParam}`
+  );
+
+  if (status !== 200) {
+    throw new Error("Couldn't fetch characters");
+  }
+
+  return data;
+};
+
 export const CharactersPage: VFC = () => {
   const { t } = useTranslation();
-  const fetchCharacters = async ({
-    pageParam = 1,
-  }): Promise<CharactersResponse> => {
-    const { data, status } = await axios.get<CharactersResponse>(
-      `${RICK_AND_MORTY_API_URL}character/?page=${pageParam}`
-    );
-
-    if (status !== 200) {
-      throw new Error("Couldn't fetch characters");
-    }
-
-    return data;
-  };
+  const mainRef = useRef<HTMLElement | null>(null);
 
   const { data, isError, error, fetchNextPage, hasNextPage } = useInfiniteQuery<
     CharactersResponse,
@@ -56,6 +58,9 @@ export const CharactersPage: VFC = () => {
         return undefined;
       }
     },
+    cacheTime: DAY_IN_MILISECONDS,
+    refetchOnMount: false,
+    staleTime: Infinity,
   });
 
   const hasData = data?.pages !== undefined && data.pages.length > 0;
@@ -65,7 +70,7 @@ export const CharactersPage: VFC = () => {
       <Helmet>
         <title>{t('homePage.title')}</title>
       </Helmet>
-      <main className={styles.main}>
+      <main className={styles.main} ref={mainRef}>
         <section className={styles.quotes}>
           <Quotes />
         </section>
@@ -77,6 +82,8 @@ export const CharactersPage: VFC = () => {
             next={fetchNextPage}
             hasMore={Boolean(hasNextPage)}
             loader={<Spinner position="relative" className={styles.spinner} />}
+            scrollableTarget={mainRef}
+            className={styles.infiniteScrollContainer}
           >
             {hasData && <Grid characters={getCharacters(data)} />}
           </InfiniteScroll>
