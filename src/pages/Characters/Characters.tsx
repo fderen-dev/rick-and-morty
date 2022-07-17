@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { InfiniteData, useInfiniteQuery } from 'react-query';
 import axios from 'axios';
+import classNames from 'classnames';
 
 import { Quotes } from 'components/Quotes/Quotes';
 import { Spinner } from 'components/Spinner/Spinner';
@@ -71,7 +72,7 @@ export const CharactersPage: VFC = () => {
         <title>{t('homePage.title')}</title>
       </Helmet>
       <main className={styles.main} ref={mainRef}>
-        <section className={styles.quotes}>
+        <section className={classNames(styles.section, styles.quotes)}>
           <Quotes />
         </section>
         <section className={styles.section}>
@@ -81,7 +82,13 @@ export const CharactersPage: VFC = () => {
             dataLength={data?.pages.length ?? 0}
             next={fetchNextPage}
             hasMore={Boolean(hasNextPage)}
-            loader={<Spinner position="relative" className={styles.spinner} />}
+            loader={
+              <Spinner
+                absolutelyCentered={false}
+                position="relative"
+                className={styles.spinner}
+              />
+            }
             scrollableTarget={mainRef}
             className={styles.inifiteScrollContainer}
           >

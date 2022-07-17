@@ -10,18 +10,4 @@ $min-col-width: calc(card.$width + 2vw);
   grid-column-gap: 2vw;
   justify-items: center;
   padding-top: 48px;
-
-  .cardTransition {
-    transition: opacity ease-in 700ms, transform ease-in 700ms;
-
-    &-enter {
-      opacity: 0;
-      transform: scale(0);
-    }
-
-    &-enter-done {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
 }

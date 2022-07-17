@@ -1,4 +1,5 @@
 import { VFC } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames/bind';
 
 import portal from 'assets/images/portal.png';
@@ -21,18 +22,20 @@ export const Spinner: VFC<SpinnerProps> = ({
   className,
 }) => {
   return (
-    <img
-      src={portal}
-      width="100%"
-      className={cx(styles.image, className, {
-        [styles.absolutelyCentered]: absolutelyCentered,
-      })}
-      alt="Green portal"
-      style={{
-        maxWidth: maxWidth,
-        position: position,
-      }}
-    />
+    <CSSTransition in appear timeout={400} classNames="grow-shrink">
+      <img
+        src={portal}
+        width="100%"
+        className={cx(styles.image, className, {
+          [styles.absolutelyCentered]: absolutelyCentered,
+        })}
+        alt="Green portal"
+        style={{
+          maxWidth: maxWidth,
+          position: position,
+        }}
+      />
+    </CSSTransition>
   );
 };
 
