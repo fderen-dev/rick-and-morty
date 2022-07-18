@@ -8,9 +8,13 @@ $width: vars.$min_width - 50px;
 $height: 340px;
 
 .container {
-  position: relative;
   width: $width;
   height: $height;
+
+  // grow animation is creating new stacking context
+  &.isSelected {
+    z-index: 500;
+  }
 
   .card {
     position: relative;
@@ -21,7 +25,6 @@ $height: 340px;
 
     &.detailed {
       transform: scale(1.1);
-      z-index: 600;
       height: auto;
 
       .generalsContainer {

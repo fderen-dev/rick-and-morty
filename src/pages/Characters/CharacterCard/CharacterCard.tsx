@@ -19,6 +19,7 @@ import styles from './characterCard.module.scss';
 const cx = classNames.bind({
   detailed: styles.detailed,
   visible: styles.visible,
+  isSelected: styles.isSelected,
 });
 
 interface CharacterCardListItemProps {
@@ -103,7 +104,9 @@ export const CharacterCard: VFC<CharacterCardProps> = ({
       onMouseOverCapture={handleFocus}
       onMouseOutCapture={handleBlur}
       onBlurCapture={handleBlur}
-      className={classNames(styles.container, className)}
+      className={cx(styles.container, className, {
+        isSelected,
+      })}
     >
       <SimpleCharacterCard
         name={character.name}
