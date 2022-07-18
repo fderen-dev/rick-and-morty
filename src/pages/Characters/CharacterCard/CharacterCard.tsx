@@ -113,7 +113,7 @@ export const CharacterCard: VFC<CharacterCardProps> = ({
         image={character.image}
         className={cx({ detailed: isSelected })}
       >
-        <p className={cx(styles.details, { visible: isSelected })}>
+        <div className={cx(styles.details, { visible: isSelected })}>
           <ul className={styles.list}>
             <CharacterCardListItem
               labelTransKey="charactersPage.character.status"
@@ -143,7 +143,7 @@ export const CharacterCard: VFC<CharacterCardProps> = ({
               value={character.created}
             />
           </ul>
-        </p>
+        </div>
       </SimpleCharacterCard>
     </div>
   );
