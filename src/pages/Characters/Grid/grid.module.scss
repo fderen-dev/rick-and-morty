@@ -1,0 +1,13 @@
+@use '../CharacterCard/characterCard.module.scss' as card;
+
+$min-col-width: calc(card.$width + 2vw);
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-col-width, 1fr));
+  grid-row-gap: max(5vh, 2vw);
+  grid-column-gap: 2vw;
+  justify-items: center;
+  padding-top: 24px;
+}

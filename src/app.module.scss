@@ -1,0 +1,16 @@
+@use 'styles/variables.scss' as vars;
+
+.app {
+  position: relative;
+  top: vars.$navbar_height;
+  min-height: calc(100vh - vars.$navbar_height);
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: vars.$max_width;
+  margin: 0 auto;
+}

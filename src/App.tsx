@@ -1,23 +1,27 @@
-import { CSSProperties } from 'react';
-
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { Router } from 'Router';
 
-const style: CSSProperties = {
-  alignItems: "center",
-  display: "flex",
-  justifyContent: "center",
-  minHeight: "100vh",
-  width: "100%",
-};
+import { Navigation } from 'components/Navigation';
+
+import styles from './app.module.scss';
 
 function App(): JSX.Element {
   const { t } = useTranslation();
 
   return (
-      <div style={ style }>
-          <h1 style={ { color: 'white' } }>{ t("home.header") }</h1>
+    <>
+      <Helmet>
+        <title>{t('title')}</title>
+      </Helmet>
+      <div className={styles.app}>
+        <div className={styles.main}>
+          <Navigation />
+          <Router />
+        </div>
       </div>
-  )
+    </>
+  );
 }
 
 export default App;

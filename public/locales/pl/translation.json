@@ -1,5 +1,59 @@
 {
-  "home": {
-    "header": "Witaj świecie!"
+  "title": "Przeglądarka informacji o Ricku i Mortym",
+  "modal": {
+    "close-aria": "Close"
+  },
+  "navbar": {
+    "logo": {
+      "alt": "Sylwetki Ricka i Mortiego"
+    },
+    "menu-aria": "Główne menu",
+    "hamburger-aria": "Otwórz menu",
+    "language-selector": {
+      "toggle-aria": "Otwórz menu",
+      "navbar.language-selector.label-aria": "Wybierz język"
+    },
+    "routes": {
+      "characters": "Postaci"
+    }
+  },
+  "homePage": {
+    "title": "Przeglądarka informacji o Ricku i Mortym | Strona domowa",
+    "header": "Cytat"
+  },
+  "charactersPage": {
+    "title": "Przeglądarka informacji o Ricku i Mortym | Postaci",
+    "header": "Postaci",
+    "character": {
+      "status": "Status",
+      "species": "Gatunek",
+      "gender": "Płeć",
+      "origin": "Pochodzenie",
+      "location": "Lokalizacja",
+      "created": "Data stworzenia",
+      "statuses": {
+        "alive": "Żywy",
+        "dead": "Martwy",
+        "unknown": "Nieznany"
+      },
+      "speciesNames": {
+        "human": "Człowiek",
+        "alien": "Kosmita",
+        "animal": "Zwierzę",
+        "mythological creature": "Postać mitologiczna",
+        "unknown": "Nieznany",
+        "poopybutthole": "Poopybutthole",
+        "humanoid": "Humanoid",
+        "cronenberg": "Cronenberg",
+        "disease": "Choroba",
+        "robot": "Robot"
+      },
+      "genders": {
+        "male": "Męska",
+        "female": "Żeńska",
+        "unknown": "Nieznana",
+        "genderless": "Bezpłciowa"
+      }
+    }
   }
 }

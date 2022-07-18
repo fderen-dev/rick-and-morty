@@ -1,5 +1,5 @@
-@use "sass:math";
-@use "./variables.scss" as vars;
+@use 'sass:math';
+@use './variables.scss' as vars;
 
 @function strip-unit($value) {
   @return math.div($value, ($value * 0 + 1));
@@ -37,5 +37,82 @@
   } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin h-coloring {
+  color: vars.$color_blue;
+  -webkit-text-stroke: 0.1px vars.$color_black;
+  text-shadow: 0 0 8px vars.$color_green;
+}
+
+@mixin regular-text {
+  font-size: vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * 18px,
+    vars.$desktop_font_mod * 18px
+  );
+}
+
+@mixin h2-like {
+  font-family: 'Get Schwifty';
+  font-size: vars.$mobile_font_mod * vars.$mobile_font_mod *
+    vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$mobile_font_mod *
+      vars.$min_font,
+    vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$desktop_font_mod *
+      vars.$min_font
+  );
+}
+
+@mixin h3-like {
+  font-family: 'Get Schwifty';
+  font-size: vars.$mobile_font_mod * vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * vars.$mobile_font_mod * vars.$min_font,
+    vars.$desktop_font_mod * vars.$desktop_font_mod * vars.$min_font
+  );
+}
+
+@mixin h4-like {
+  font-family: 'Get Schwifty';
+  font-size: vars.$mobile_font_mod * vars.$mobile_font_mod * 1rem;
+  @include fluid-type(
+    vars.$min_width,
+    vars.$max_width,
+    vars.$mobile_font_mod * vars.$min_font,
+    vars.$desktop_font_mod * vars.$min_font
+  );
+}
+
+@mixin underline-after {
+  &:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 20%;
+    left: 25%;
+    background-color: vars.$color_black;
+    @content;
+  }
+}
+
+@mixin underline-on-hover {
+  @include underline-after {
+    transform: scaleX(0);
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 }

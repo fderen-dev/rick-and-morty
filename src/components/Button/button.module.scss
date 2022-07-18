@@ -1,0 +1,32 @@
+@use 'styles/variables.scss' as vars;
+
+$color_gray_hover: #aaa9a9;
+
+.button {
+  padding: vars.$spacing_base vars.$spacing_base * 2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: vars.$color_transparent;
+  border: none;
+
+  &.primary {
+    border-radius: vars.$border_radius;
+    box-shadow: vars.$box_shadow;
+    background-color: vars.$color_gray_light;
+
+    &:hover {
+      background-color: $color_gray_hover;
+      transition: background-color 0.2s linear;
+    }
+
+    &:active {
+      transform: scale(0.95);
+      transition: transform 0.2 linear;
+    }
+  }
+
+  &.raw {
+    padding: 0;
+  }
+}

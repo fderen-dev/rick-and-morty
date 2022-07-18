@@ -1,5 +1,59 @@
 {
-  "home": {
-    "header": "Hello world!"
+  "title": "Rick and Morty data browser",
+  "modal": {
+    "close-aria": "Close"
+  },
+  "navbar": {
+    "logo": {
+      "alt": "Rick and Morty silhuettes"
+    },
+    "menu-aria": "Main menu",
+    "hamburger-aria": "Open menu",
+    "language-selector": {
+      "toggle-aria": "Open menu",
+      "navbar.language-selector.label-aria": "Select a language"
+    },
+    "routes": {
+      "characters": "Characters"
+    }
+  },
+  "homePage": {
+    "title": "Rick and Morty data browser | Home page",
+    "header": "Quote"
+  },
+  "charactersPage": {
+    "title": "Rick and Morty data browser | Characters",
+    "header": "Characters",
+    "character": {
+      "status": "Status",
+      "species": "Species",
+      "gender": "Gender",
+      "origin": "Origin",
+      "location": "Location",
+      "created": "Created",
+      "statuses": {
+        "alive": "Alive",
+        "dead": "Dead",
+        "unknown": "Unknown"
+      },
+      "speciesNames": {
+        "human": "Human",
+        "alien": "Alien",
+        "animal": "Animal",
+        "mythological creature": "Mythological creature",
+        "unknown": "Unknown",
+        "poopybutthole": "Poopybutthole",
+        "humanoid": "Humanoid",
+        "cronenberg": "Cronenberg",
+        "disease": "Disease",
+        "robot": "Robot"
+      },
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "unknown": "Uknown",
+        "genderless": "Genderless"
+      }
+    }
   }
 }

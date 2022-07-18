@@ -1,0 +1,104 @@
+@use 'styles/mixins.scss';
+@use 'styles/variables.scss' as vars;
+
+$shift: 30px;
+$selection-animation-time: 0.3s;
+$selection-animation-timing-function: ease-in;
+$width: vars.$min_width - 50px;
+$height: 340px;
+
+.container {
+  width: $width;
+  height: $height;
+
+  // grow animation is creating new stacking context
+  &.isSelected {
+    z-index: 500;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform $selection-animation-time
+      $selection-animation-timing-function;
+
+    &.detailed {
+      transform: scale(1.1);
+      height: auto;
+
+      .generalsContainer {
+        .name {
+          display: inline-block;
+          -webkit-line-clamp: unset;
+          -webkit-box-orient: unset;
+        }
+      }
+    }
+
+    .generalsContainer {
+      position: relative;
+      bottom: $shift;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .image {
+        border: solid vars.$color_blue;
+        box-shadow: 0 3px 20px green;
+      }
+
+      .name {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        width: 75%;
+        text-align: center;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        padding: 8px;
+        position: relative;
+        bottom: $shift;
+        margin-bottom: -$shift;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+        font-weight: vars.$font_weight_regular;
+        @include mixins.h4-like;
+      }
+    }
+
+    .details {
+      visibility: hidden;
+      max-height: 0;
+      transition: max-height $selection-animation-time
+        $selection-animation-timing-function;
+
+      .list {
+        list-style: none;
+        opacity: 0;
+        transition: opacity $selection-animation-time
+          $selection-animation-timing-function;
+
+        .item {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          .value {
+            word-break: break-word;
+            align-self: flex-end;
+          }
+        }
+      }
+
+      &.visible {
+        visibility: visible;
+        max-height: 1337px;
+
+        .list {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use 'styles/mixins.scss';
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.navbarItem {
+  @include mixins.underline-on-hover;
+}
