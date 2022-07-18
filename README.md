@@ -12,11 +12,11 @@ SPA consuming https://rickandmortyapi.com/ and https://loremricksum.com/ APIs.
 
 ## TODOS
 
-[ ] Characters filtering,
-[ ] Color of a character border indicating status,
-[ ] Scroll to top,
-[ ] Episodes page,
-[ ] Locations page
+- Characters filtering,
+- Color of a character border indicating status,
+- Scroll to top,
+- Episodes page,
+- Locations page
 
 ## Run Locally
 
