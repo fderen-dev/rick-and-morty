@@ -19,6 +19,7 @@ import styles from './characterCard.module.scss';
 const cx = classNames.bind({
   detailed: styles.detailed,
   visible: styles.visible,
+  isSelected: styles.isSelected,
 });
 
 interface CharacterCardListItemProps {
@@ -79,9 +80,13 @@ const SimpleCharacterCard: FC<SimpleCharacterCardProps> = ({
 
 interface CharacterCardProps {
   character: Character;
+  className?: string;
 }
 
-export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
+export const CharacterCard: VFC<CharacterCardProps> = ({
+  character,
+  className,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleFocus = () => setIsSelected(true);
@@ -99,14 +104,16 @@ export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
       onMouseOverCapture={handleFocus}
       onMouseOutCapture={handleBlur}
       onBlurCapture={handleBlur}
-      className={styles.container}
+      className={cx(styles.container, className, {
+        isSelected,
+      })}
     >
       <SimpleCharacterCard
         name={character.name}
         image={character.image}
         className={cx({ detailed: isSelected })}
       >
-        <p className={cx(styles.details, { visible: isSelected })}>
+        <div className={cx(styles.details, { visible: isSelected })}>
           <ul className={styles.list}>
             <CharacterCardListItem
               labelTransKey="charactersPage.character.status"
@@ -136,7 +143,7 @@ export const CharacterCard: VFC<CharacterCardProps> = ({ character }) => {
               value={character.created}
             />
           </ul>
-        </p>
+        </div>
       </SimpleCharacterCard>
     </div>
   );

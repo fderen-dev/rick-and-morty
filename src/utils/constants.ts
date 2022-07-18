@@ -17,3 +17,5 @@ export enum Routes {
 
 export const QUOTES_API_URL = 'http://loremricksum.com/api/';
 export const RICK_AND_MORTY_API_URL = 'https://rickandmortyapi.com/api/';
+
+export const DAY_IN_MILISECONDS = 86400 * 1000;
